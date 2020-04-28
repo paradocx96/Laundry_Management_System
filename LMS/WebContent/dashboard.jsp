@@ -11,10 +11,9 @@
 
 <a href="http://Localhost:8086/LMS/index.jsp">Logout</a>
 
-
-
-
 	<center><h1> WELCOME BACK !</h1></center>
+	
+	
 
 </body>
 </html>
