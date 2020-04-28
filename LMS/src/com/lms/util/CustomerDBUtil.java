@@ -15,7 +15,7 @@ public class CustomerDBUtil {
 
 	
 	//validate username and password
-	try {
+	/*try {
 		
 		
 		Connection con = DBconnect.getConnection();
@@ -39,7 +39,7 @@ public class CustomerDBUtil {
 		
 	}
 	
-	
+	*/
 	}
 	
 	

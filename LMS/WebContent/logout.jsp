@@ -4,17 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Homepage</title>
+<title>Insert title here</title>
 </head>
 <body>
 
+<%
 
-<a href="http://Localhost:8086/LMS/index.jsp">Logout</a>
+	session.invalidate();
+	response.sendRedirect("index.jsp");
+	
+%>
 
+<center><h2>Thank you ! come again.</h2></center>
 
-
-
-	<center><h1> WELCOME BACK !</h1></center>
 
 </body>
 </html>

@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<a href="http://Localhost:8086/LMS/dashboard.jsp"> Dashboard</a>
+
 	<form action="LoginServlet" method="post">
 
 		User Name : <input type="text" name="userName" value=""/> <br/>
