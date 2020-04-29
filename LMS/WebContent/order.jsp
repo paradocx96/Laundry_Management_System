@@ -10,7 +10,7 @@
 <body>
 	<fieldset>
 	<legend>New Order</legend><br>
-	<form>
+	<form method="post" action="AddOrderServlet">
 		<table border="0" style="width: 100%;">
 		<tr>
 			<td>Order Id</td>
@@ -26,11 +26,11 @@
 		</tr>
 		<tr>
 			<td>Order Date</td>
-			<td><input type="date" name="orderDate"></td>
+			<td><input type="text" name="orderDate"></td>
 		</tr>
 		<tr>
 			<td>Delivery Date</td>
-			<td><input type="date" name="deliveryDate"></td>
+			<td><input type="text" name="deliveryDate"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right"><input type="submit" value="Submit" /></td>
