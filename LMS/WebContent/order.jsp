@@ -6,7 +6,9 @@
 
 <head>
 
-<link rel="stylesheet" type="text/css" href="CSS/index.css">
+<style type="text/css">
+  <%@include file="CSS/index.css" %>
+</style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 

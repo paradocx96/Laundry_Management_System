@@ -4,9 +4,10 @@
 <html>
 <head>
 
-<link rel = "stylesheet"
-   type = "text/css"
-   href = "CSS/login.css" />
+<style type="text/css">
+  <%@include file="CSS/login.css" %>
+</style>
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Login</title>
