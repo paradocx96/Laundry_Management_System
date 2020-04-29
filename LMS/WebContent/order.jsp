@@ -1,12 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
+
 <head>
+
 <link rel="stylesheet" type="text/css" href="CSS/index.css">
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Add Order</title>
+
 </head>
+
 <body>
 	<fieldset>
 	<legend>New Order</legend><br>
@@ -14,11 +21,11 @@
 		<table border="0" style="width: 100%;">
 		<tr>
 			<td>Order Id</td>
-			<td><input type="text" name="oderId"></td>
+			<td><input type="text" name="orderId"></td>
 		</tr>
 		<tr>
 			<td>Customer Id</td>
-			<td><input type="text" name="customerId"></td>
+			<td><input type="text" name="custId"></td>
 		</tr>
 		<tr>
 			<td>Weight</td>

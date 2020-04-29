@@ -1,5 +1,8 @@
 package com.lms.util;
+
 import java.sql.*;
+
+import com.lms.util.DBconnect;
 
 public class OrderDBUtil {
 
@@ -7,26 +10,19 @@ public class OrderDBUtil {
 		
 		boolean isSuccess=false;
 		
-		//database connection
-		String url = "jdbc.mysql://localhost:3306/lms";
-		String user = "root";
-		String password="LMS1234#";
-		
 		try {
 			
-			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DBconnect.getConnection();
+			Statement state = con.createStatement();
 			
-			Connection con = DriverManager.getConnection(url,user,password);
-			Statement stmt = con.createStatement();
-			String sql="insert into orders values(0,'"+custId+"','"+weight+"','"+orderDate+"','"+deliveryDate+"')";
-			int rs = stmt.executeUpdate(sql);
-			
-			if(rs > 0) {
-				isSuccess=true;
-			}
-			else {
-				isSuccess=false;
-			}
+			String sql="insert into orders values(0,'" + custId + "','" + weight + "','" + orderDate + "','" + deliveryDate + "');";
+			int rs = state.executeUpdate(sql);
+    		
+    		if(rs > 0) {
+    			isSuccess = true;
+    		} else {
+    			isSuccess = false;
+    		}
 		}
 		catch(Exception e) {
 			e.printStackTrace();
