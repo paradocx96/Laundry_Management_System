@@ -9,10 +9,6 @@
 <title>Add Payment</title>
 </head>
 <body>
-<header>
-<a href="<%=request.getContextPath()%> /list">Payment</a>
-</header>
-
 
 <c:if test="${payment == null}">
 <form action="insert" method="post">

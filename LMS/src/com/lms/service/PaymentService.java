@@ -17,7 +17,7 @@ public class PaymentService {
 	private static final String GET_PAYMENT_BY_ID = "SELECT paymentID,orderID,payType,totAmount,description,dateTime FROM payment WHERE paymentID = ?;";
 	private static final String GET_ALL_PAYMENT = "SELECT * FROM payment;";
 	private static final String DELETE_PAYMENT_SQL = "DELETE FROM payment WHERE paymentID = ?;";
-	private static final String UPDATE_TOT_AMOUNT_SQL = "UPDATE payment SET totAmount = ? WHERE paymentID = ?;";
+	private static final String UPDATE_PAYMENT_DETAILS = "UPDATE payment SET payType = ?, description = ? WHERE paymentID = ?;";
 
 	public PaymentService() {
 		
@@ -36,6 +36,44 @@ public class PaymentService {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void deletePayment(Payment payment) throws SQLException {
+		try (Connection connection = DBconnect.getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PAYMENT_SQL)) {
+					
+			preparedStatement.setString(1, payment.getPaymentID());
+			preparedStatement.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public void updatePayment(Payment payment) throws SQLException {
+		try (Connection connection = DBconnect.getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PAYMENT_DETAILS)) {
+					
+			preparedStatement.setString(1, payment.getPaymentType());
+			preparedStatement.setString(2, payment.getDescription());
+			preparedStatement.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void showPaymentList(Payment payment) throws SQLException {
+		try (Connection connection = DBconnect.getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(GET_PAYMENT_BY_ID)) {
+					
+			preparedStatement.setString(1, payment.getPaymentID());
+			preparedStatement.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 
