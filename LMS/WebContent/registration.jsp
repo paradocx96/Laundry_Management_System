@@ -1,12 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registration</title>
+<meta charset="ISO-8859-1">
+
+<style type="text/css">
+  <%@include file="CSS/reg.css" %>
+</style>
+
+<title>Register</title>
+
 </head>
+
 <body>
+
+<h1>Register</h1>
+
+<div class="row">
+	<div class="col-sm-4">
+	<form action="RegistrationServlet" method="post" class="card">
+		<div align="left">
+			<label class="form-lable">First Name</label>
+			<input type="text" class="form-control" placeholder="First Name" name="fname" id="fname" required="required">
+		</div>
+		<div align="left">
+			<label class="form-lable">Last Name</label>
+			<input type="text" class="form-control" placeholder="Last Name" name="lname" id="lname">
+		</div>
+		<div align="left">
+			<label class="form-lable">Address</label>
+			<input type="text" class="form-control" placeholder="Address" name="address" id="address">
+		</div>
+		<div align="left">
+			<label class="form-lable">Email</label>
+			<input type="text" class="form-control" placeholder="Email" name="email" id="email" required="required">
+		</div>
+		<div align="left">
+			<label class="form-lable">Phone Number</label>
+			<input type="text" class="form-control" placeholder="Phone Number" name="pnumber" id="pnumber">
+		</div>
+		<div align="left">
+			<label class="form-lable">Username</label>
+			<input type="text" class="form-control" placeholder="Username" name="username" id="username" required="required">
+		</div>
+		<div align="left">
+			<label class="form-lable">Password</label>
+			<input type="text" class="form-control" placeholder="" name="password" id="password" required="required">
+		</div>
+		<div align="right">
+			<input type="submit" id="submit" value="submit" name="submit" class="btn btn-info">
+			<input type="reset" id="reset" value="reset" name="reset" class="btn btn-warning">
+		</div>
+	</form>
+	</div>
+	<div class="col-sm-8">
+		
+	</div>
+</div>
 
 </body>
 </html>

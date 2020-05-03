@@ -27,11 +27,22 @@
     <servlet-name>AddOrderServlet</servlet-name>
     <url-pattern>/AddOrder</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <servlet-class>com.lms.servlet.RegistrationServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>RegistrationServlet</servlet-name>
+    <url-pattern>/Registration</url-pattern>
+  </servlet-mapping>
 
   <welcome-file-list>
   	<welcome-file>index.jsp</welcome-file>
   	<welcome-file>dashboard.jsp</welcome-file>
   	<welcome-file>logout.jsp</welcome-file>
+  	<welcome-file>registration.jsp</welcome-file>
   </welcome-file-list>
   
 </web-app>

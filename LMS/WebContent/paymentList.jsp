@@ -6,6 +6,7 @@
 	<meta charset="ISO-8859-1">
 	<title>Payment History</title>
 	<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<form action="">
