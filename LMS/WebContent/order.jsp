@@ -7,7 +7,7 @@
 <head>
 
 <style type="text/css">
-  <%@include file="CSS/index.css" %>
+  <%@include file="CSS/addOrder.css" %>
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -20,7 +20,7 @@
 	<fieldset>
 	<legend>New Order</legend><br>
 	<form method="post" action="AddOrderServlet">
-		<table border="0" style="width: 100%;">
+		<table style="width: 100%;">
 		<tr>
 			<td>Order Id</td>
 			<td><input type="text" name="orderId"></td>
@@ -35,16 +35,19 @@
 		</tr>
 		<tr>
 			<td>Order Date</td>
-			<td><input type="text" name="orderDate"></td>
+			<td><input type="date" name="orderDate"></td>
 		</tr>
 		<tr>
 			<td>Delivery Date</td>
-			<td><input type="text" name="deliveryDate"></td>
+			<td><input type="date" name="deliveryDate"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right"><input type="submit" value="Submit" /></td>
 		</tr>
 		</table>
+	</form>
+	<form method = "POST" action = "ViewOrderServlet">
+		<input type = "submit" value = "Show all orders" />
 	</form>
 	</fieldset>
 </body>

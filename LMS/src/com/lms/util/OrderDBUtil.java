@@ -1,8 +1,10 @@
 package com.lms.util;
 
-import java.sql.*;
 
-import com.lms.util.DBconnect;
+import java.sql.*;
+import java.util.*;
+import com.lms.model.Order;
+
 
 public class OrderDBUtil {
 
@@ -30,5 +32,33 @@ public class OrderDBUtil {
 		
 		return isSuccess;
 		
+	}
+	
+	
+	
+	public ArrayList<Order> getOrderDetails(){
+		ArrayList<Order> ordRecSet = new ArrayList<Order>(); 
+		try {
+			
+			Connection con = DBconnect.getConnection();
+			Statement state = con.createStatement();
+			 String sql="select * from orders";
+			 ResultSet rs = state.executeQuery(sql);
+
+			 while(rs.next()) {
+				 Order ord = new Order();
+						ord.setOrderId(rs.getInt(1));
+						ord.setCustId(rs.getInt(2));
+						ord.setWeight(rs.getDouble(3));
+						ord.setOrderDate(rs.getString(4));
+						ord.setDeliveryDate(rs.getString(5));
+					
+					ordRecSet.add(ord);
+			 }
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return ordRecSet;
 	}
 }

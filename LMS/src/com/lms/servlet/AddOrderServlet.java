@@ -41,11 +41,11 @@ public class AddOrderServlet extends HttpServlet {
 		isTrue = OrderDBUtil.insertOrder(orderId, custId, weight, orderDate, deliveryDate);
 		
 		if (isTrue == true) {
-			RequestDispatcher dis=request.getRequestDispatcher("orderlist.jsp");
+			RequestDispatcher dis=  getServletContext().getRequestDispatcher("/orderlist.jsp");
 			dis.forward(request, response);
 		}
 		else {
-			RequestDispatcher dis2=request.getRequestDispatcher("index.jsp");
+			RequestDispatcher dis2= getServletContext().getRequestDispatcher("/index.jsp");
 			dis2.forward(request, response);
 		}
 		

@@ -28,6 +28,16 @@
     <url-pattern>/AddOrder</url-pattern>
   </servlet-mapping>
   
+     <servlet>
+    <servlet-name>ViewOrderServlet</servlet-name>
+    <servlet-class>com.lms.servlet.ViewOrderServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ViewOrderServlet</servlet-name>
+    <url-pattern>/ViewOrder</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
     <servlet-name>RegistrationServlet</servlet-name>
     <servlet-class>com.lms.servlet.RegistrationServlet</servlet-class>
