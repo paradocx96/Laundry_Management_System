@@ -44,6 +44,7 @@ public class AddOrderServlet extends HttpServlet {
 			RequestDispatcher dis=  getServletContext().getRequestDispatcher("/orderlist.jsp");
 			dis.forward(request, response);
 		}
+		
 		else {
 			RequestDispatcher dis2= getServletContext().getRequestDispatcher("/index.jsp");
 			dis2.forward(request, response);

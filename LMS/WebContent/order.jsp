@@ -17,6 +17,17 @@
 </head>
 
 <body>
+	
+	<form method = "POST" action = "ViewOrderServlet">
+	<table>
+		<tr>
+			<th WIDTH="2500"></th>
+			<th WIDTH="2500"></th>
+			<th WIDTH="100"><input type = "submit" value = "Show all orders" /></th>
+		</tr>
+	</table>
+	</form>
+	
 	<fieldset>
 	<legend>New Order</legend><br>
 	<form method="post" action="AddOrderServlet">
@@ -45,9 +56,6 @@
 			<td colspan="2" align="right"><input type="submit" value="Submit" /></td>
 		</tr>
 		</table>
-	</form>
-	<form method = "POST" action = "ViewOrderServlet">
-		<input type = "submit" value = "Show all orders" />
 	</form>
 	</fieldset>
 </body>
