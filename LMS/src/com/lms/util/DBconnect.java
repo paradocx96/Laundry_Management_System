@@ -1,6 +1,5 @@
 package com.lms.util;
 
-import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -26,6 +25,5 @@ public class DBconnect {
 			
 			return con;
 		}
-
-	
+  
 }
