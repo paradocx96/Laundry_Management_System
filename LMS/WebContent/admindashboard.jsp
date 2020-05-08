@@ -9,7 +9,6 @@
 <body>
 	<h1>DASHBOARD</h1>
 	<br><br><br>
-	
 	<table border="2" cellpadding="25">
 		<tr>
 			<th><a href="customerlist.jsp">Customers</a></th>

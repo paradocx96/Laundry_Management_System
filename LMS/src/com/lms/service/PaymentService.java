@@ -51,39 +51,6 @@ public class PaymentService {
 		return isSuccess;
 	}
 	
-	/*
-	public static Payment selectPayment(int payID) {
-		Payment payment = null;
-		
-		try (Connection connection = DBconnect.getConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(GET_PAYMENT_BY_ID);) {
-			
-			preparedStatement.setInt(1,payID);
-			
-			System.out.println(preparedStatement);
-			
-			ResultSet resultSet = preparedStatement.executeQuery();
-			
-			while (resultSet.next()) {
-				String orderid = resultSet.getString("orderID");
-				String date = resultSet.getString("dateTime");
-				String type = resultSet.getString("payType");
-				String desc = resultSet.getString("description");
-				double amount = resultSet.getDouble("totAmount");
-				
-				payment = new Payment(payID, orderid, date, type, desc, amount);
-				
-				
-				
-			}
-						
-		} catch (SQLException e) {
-			printSQLException(e);
-		}
-		
-		return payment;
-		
-	}*/
 	
 	public static List<Payment> selectPayment(int payID) {
 		

@@ -40,9 +40,7 @@ public class DeletePaymentServlet extends HttpServlet {
 	private void deletePayment(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, IOException {
 		
         int paymentID = Integer.parseInt(request.getParameter("paymentID"));
-        
         System.out.println(paymentID);
-        
         Payment payment = new Payment(paymentID);
     	PaymentService.deletePayment(payment);
         response.sendRedirect("paymentList.jsp");

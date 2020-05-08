@@ -61,14 +61,11 @@ public class LoginServlet extends HttpServlet {
 			
 			e.printStackTrace();
 		}  
-		
-		
+
 		//response.sendRedirect("dashboard.jsp");
 		//RequestDispatcher dis = request.getRequestDispatcher("dashboard.jsp");
 		//dis.forward(request, response);		
 
-		
-		
 	}
 
 }
