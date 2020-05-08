@@ -60,7 +60,7 @@ public class OrderDBUtil {
 		boolean rowDelete = false;
 		
 		try (Connection connection = DBconnect.getConnection();
-			PreparedStatement preparedStatement = connection.prepareStatement("DELETE * FROM orders WHERE orderId=?");) {
+			PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM orders WHERE orderId=?");) {
 			
 			preparedStatement.setInt(1, order.getOrderId());
 			rowDelete = preparedStatement.executeUpdate() > 0;
