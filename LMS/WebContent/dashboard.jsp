@@ -9,7 +9,9 @@
 <body>
 
 
-<a href="http://Localhost:8086/LMS/index.jsp">Logout</a>
+<a href="logout.jsp">Logout</a>
+
+<a href="customerEditBios.jsp">Edit Bios</a>
 
 	<center><h1> WELCOME BACK !</h1></center>
 	

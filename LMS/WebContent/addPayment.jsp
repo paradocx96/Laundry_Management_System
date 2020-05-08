@@ -9,26 +9,22 @@
 <title>Add Payment</title>
 </head>
 <body>
-
-<c:if test="${payment == null}">
-<form action="insert" method="post">
-</c:if>
-
-<c:if test="${payment == null}"><h1>ADD PAYMENT</h1></c:if>
-<br>
-<br>
-<br>
-Order ID
-<br>
-<input type="text" value="<c:out value='${payment.orderid}' />" name="orderid"/>
-<br>
-<br>
-Payment Amount
-<br>
-<input type="text" value="<c:out value='${payment.payamount}' />" name="payamount"/>
-<br>
-<br>
-<button type="submit">Save</button>
-</form>
+	<form action="addPayment" method="post">
+		<h1>ADD PAYMENT</h1>
+		<br>
+		<br>
+		<br>
+		Order ID
+		<br>
+		<input type="text" name="orderid"/>
+		<br>
+		<br>
+		Payment Amount
+		<br>
+		<input type="text" name="payamount"/>
+		<br>
+		<br>
+		<button type="submit" name="submit" value="Add Payment">Save</button>
+		</form>
 </body>
 </html>

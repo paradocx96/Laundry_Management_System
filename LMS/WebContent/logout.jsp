@@ -9,14 +9,10 @@
 <body>
 
 <%
-
 	session.invalidate();
 	response.sendRedirect("index.jsp");
 	
 %>
-
-<center><h2>Thank you ! come again.</h2></center>
-
 
 </body>
 </html>

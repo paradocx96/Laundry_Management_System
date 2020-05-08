@@ -1,11 +1,12 @@
 package com.lms.util;
 
+import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBconnect {
 
-		private static  String url = "jdbc:mysql://localhost:3306/lms";
+		private static  String url = "jdbc:mysql://localhost:3306/lms?useSSL=false";
 		private static  String userName = "root";
 		private static  String password = "root";
 		private static  Connection con;
@@ -25,5 +26,6 @@ public class DBconnect {
 			
 			return con;
 		}
-  
+
+	
 }

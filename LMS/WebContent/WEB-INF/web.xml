@@ -1,52 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+  
          
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
     <servlet-class>com.lms.servlet.LoginServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
  
+ 
    <servlet>
     <servlet-name>AddOrderServlet</servlet-name>
     <servlet-class>com.lms.servlet.AddOrderServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>AddOrderServlet</servlet-name>
     <url-pattern>/AddOrder</url-pattern>
   </servlet-mapping>
   
+  
      <servlet>
     <servlet-name>ViewOrderServlet</servlet-name>
     <servlet-class>com.lms.servlet.ViewOrderServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>ViewOrderServlet</servlet-name>
     <url-pattern>/ViewOrder</url-pattern>
   </servlet-mapping>
   
+  
   <servlet>
     <servlet-name>RegistrationServlet</servlet-name>
     <servlet-class>com.lms.servlet.RegistrationServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>RegistrationServlet</servlet-name>
     <url-pattern>/Registration</url-pattern>
   </servlet-mapping>
+  
+  
+  <servlet>  
+    <servlet-name>DisplayCustomerBioServlet</servlet-name>
+    <servlet-class>com.lms.servlet.DisplayCustomerBioServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayCustomerBioServlet</servlet-name>
+    <url-pattern>/DisplayBios</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>EditCustomerBiosServlet</servlet-name>
+    <servlet-class>com.lms.servlet.EditCustomerBiosServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditCustomerBiosServlet</servlet-name>
+    <url-pattern>/EditCustomerBios</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>AddPayment</servlet-name>
+  	<servlet-class>com.lms.servlet.AddPaymentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddPayment</servlet-name>
+  	<url-pattern>/addPayment</url-pattern>
+  </servlet-mapping>
+  
+
+  <servlet>
+  	<servlet-name>DeletePaymentServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.DeletePaymentServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>DeletePaymentServlet</servlet-name>
+  	<url-pattern>/deletePayment</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>UpdatePaymentAdminServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.UpdatePaymentAdminServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>UpdatePaymentAdminServlet</servlet-name>
+  	<url-pattern>/UpdatePaymentAdmin</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>EditPaymentServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.EditPaymentServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>EditPaymentServlet</servlet-name>
+  	<url-pattern>/editPaymentAdmin</url-pattern>
+  </servlet-mapping>
+
+  
+  <servlet>
+  	<servlet-name>ListPayment</servlet-name>
+  	<servlet-class>com.lms.servlet.ListPaymentServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>ListPayment</servlet-name>
+  	<url-pattern>/listPayment</url-pattern>
+  </servlet-mapping>
+
 
   <welcome-file-list>
   	<welcome-file>index.jsp</welcome-file>

@@ -2,21 +2,29 @@ package com.lms.model;
 
 public class Payment {
 	
-	private String paymentID;
+	private int paymentID;
 	private String orderID;
 	private String paymentDate;
 	private String paymentType;
 	private String description;
 	private double payAmount;
+	
 
-	public Payment(String paymentID, String paymentDate, String paymentType, String description, double payAmount) {
+	public Payment(int paymentID, String orderID, String paymentDate, String paymentType, String description, double payAmount) {
 		super();
 		this.paymentID = paymentID;
+		this.orderID = orderID;
 		this.paymentDate = paymentDate;
 		this.paymentType = paymentType;
 		this.description = description;
 		this.payAmount = payAmount;
 	}
+	
+	public Payment(int paymentID) {
+		super();
+		this.paymentID = paymentID;
+	}
+
 	
 	public Payment(String orderID, double payAmount) {
 		super();
@@ -24,15 +32,18 @@ public class Payment {
 		this.payAmount = payAmount;
 	}
 
-	
-	public String getPaymentID() {
+	public Payment() {
+		
+	}
+
+	public int getPaymentID() {
 		return paymentID;
 	}
 
-	public void setPaymentID(String paymentID) {
+	public void setPaymentID(int paymentID) {
 		this.paymentID = paymentID;
 	}
-	
+
 	public String getOrderID() {
 		return orderID;
 	}

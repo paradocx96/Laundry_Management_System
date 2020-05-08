@@ -7,11 +7,11 @@
   <%@include file="CSS/login.css" %>
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login</title>
+<title>Display</title>
 </head>
 <body>
 
-<form action="LoginServlet" method="post">
+<form action="DisplayBios" method="post">
 
 <div class="login-wrap">
 

@@ -13,7 +13,6 @@ public class Customer {
 	
 	public Customer(int custId, String firstName, String lastName, String email, int phone, String address,
 					String userName, String password) {
-		super();
 		this.custId = custId;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -23,7 +22,33 @@ public class Customer {
 		this.userName = userName;
 		this.password = password;
 	}
+	
+	public Customer(String firstName, String lastName, String email, int phone, String address, String userName,
+			String password) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.userName = userName;
+		this.password = password;
+	}
 
+	
+	public Customer(int custId,String firstName, String lastName, String email, int phone, String address) {
+		
+		super();
+		this.custId = custId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		
+		
+	}
+	
 	public int getCustId() {
 		return custId;
 	}
