@@ -2,45 +2,37 @@ package com.lms.util;
 
 
 import java.sql.*;
+
 import java.util.*;
 import com.lms.model.Order;
 
 
 public class OrderDBUtil {
-
-	public static boolean insertOrder(String orderId, String custId, String weight, String orderDate, String deliveryDate) {
-		
+	public static boolean insertOrder(String orderId, String custId, String weight, String orderDate, String deliveryDate) {	
 		boolean isSuccess=false;
 		
-		try {
-			
+		try {	
 			Connection con = DBconnect.getConnection();
-			Statement state = con.createStatement();
-			
+			Statement state = con.createStatement();	
 			String sql="insert into orders values(0,'" + custId + "','" + weight + "','" + orderDate + "','" + deliveryDate + "');";
 			int rs = state.executeUpdate(sql);
-    		
     		if(rs > 0) {
     			isSuccess = true;
     		} else {
     			isSuccess = false;
     		}
-		}
-		
+		}	
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		
 		return isSuccess;
-		
 	}
 	
 	
 	
 	public ArrayList<Order> getOrderDetails(){
 		ArrayList<Order> ordRecSet = new ArrayList<Order>(); 
-		try {
-			
+		try {	
 			Connection con = DBconnect.getConnection();
 			Statement state = con.createStatement();
 			 String sql="select * from orders";
@@ -61,5 +53,26 @@ public class OrderDBUtil {
 			e.printStackTrace();
 		}
 		return ordRecSet;
+	}
+	
+	public static boolean deleteOrder (Order order) {
+		
+		boolean rowDelete = false;
+		
+		try (Connection connection = DBconnect.getConnection();
+			PreparedStatement preparedStatement = connection.prepareStatement("DELETE * FROM orders WHERE orderId=?");) {
+			
+			preparedStatement.setInt(1, order.getOrderId());
+			rowDelete = preparedStatement.executeUpdate() > 0;
+			System.out.println(preparedStatement);
+			preparedStatement.close();
+			connection.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return rowDelete;
+
 	}
 }

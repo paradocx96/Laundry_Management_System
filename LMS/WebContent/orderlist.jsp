@@ -47,6 +47,7 @@
 			<td style="text-align:center"><%= order.getOrderDate() %></td>
 			<td style="text-align:center"><%= order.getDeliveryDate() %></td>
 			<td style="text-align:center"><input type="button" value="view"></td>
+			<td><a href= "DeleteOrder?orderId=<%= order.getOrderId() %>" >Delete</a></td>
 		</tr>
 	<% } %>
 	</table>

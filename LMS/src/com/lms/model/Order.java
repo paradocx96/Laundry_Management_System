@@ -18,6 +18,11 @@ public class Order{
 		this.orderDate = orderDate;
 		this.deliveryDate = deliveryDate;
 	}
+	
+	public Order(int orderId) {
+		super();
+		this.orderId = orderId;
+	}
 
 	public int getOrderId() {
 		return orderId;
