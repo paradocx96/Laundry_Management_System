@@ -9,6 +9,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.lms.model.Payment,com.lms.service.*,com.lms.util.*,java.util.*" %>
 
+<link href="CSS/payment/css/viewpay.css" rel="stylesheet" type="text/css">
+
 <title>Edit Payment</title>
 </head>
 <body>
@@ -31,15 +33,18 @@
 			</tr>
 			<tr>
 				<td><label class="">Payment Date</label></td>
-				<td><input type="text" class="" value="${payment.paymentDate}" name="paydatetime" id="paydatetime"readonly="readonly"></td>
+				<td><input type="text" class="" value="${payment.paymentDate}" name="paydatetime" id="paydatetime" readonly="readonly"></td>
 			</tr>
 			<tr>	
 				<td><label class="">Net Amount</label></td>
-				<td>Rs. <input type="text" class="" value="${payment.payAmount}" name="payamount" id="payamount"></td>
+				<td>Rs.<input type="text" class="" value="${payment.payAmount}" name="payamount" id="payamount"></td>
 			</tr>
 			<tr>
 				<td><label class="">Payment Type</label></td>
-				<td><input type="text" class="" value="${payment.paymentType}" name="paytype" id="paytype"></td>
+				<td><input type="text" class="" value="${payment.paymentType}" readonly="readonly"><br>
+				<input type="radio" id="cardPay" name="paytype" value="Card Payment"><label for="cardPay">Card Payment</label><br>
+				<input type="radio" id="cashonDelivery" name="paytype" value="Cash on Delivery"><label for="cashonDelivery">Cash on Delivery</label>
+				</td>
 			</tr>
 			<tr>
 				<td><label class="">Description</label></td>

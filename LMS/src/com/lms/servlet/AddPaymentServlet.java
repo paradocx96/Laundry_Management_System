@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.service.PaymentService;
+import com.lms.model.Payment;
 
 
 @WebServlet("/AddPaymentServlet")
@@ -22,10 +23,13 @@ public class AddPaymentServlet extends HttpServlet {
 		boolean istrue;
 		
 		String oderid = request.getParameter("orderid");
-		String payamount = request.getParameter("payamount");
-		double amount = Double.parseDouble(payamount);
+		String paytype = request.getParameter("paytype");
+		double payamount = Double.parseDouble(request.getParameter("payamount"));
+		String description = request.getParameter("description");
 		
-		istrue = PaymentService.insertPayment(oderid, amount);
+		Payment createPayment = new Payment(oderid, paytype, description, payamount);
+		
+		istrue = PaymentService.addPayment(createPayment);
 				
 		if (istrue == true) {
 			RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("paymentList.jsp");

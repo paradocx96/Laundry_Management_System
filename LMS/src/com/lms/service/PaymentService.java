@@ -11,10 +11,11 @@ import com.lms.util.DBconnect;
 
 public class PaymentService {
 	
+	private static final String CREATE_PAYMENT = "INSERT INTO payment (orderID,payType,totAmount,description) VALUES (?,?,?,?);";
 	private static final String GET_PAY_BY_ID = "SELECT paymentID,orderID,payType,totAmount,description,dateTime FROM payment WHERE paymentID = ?;";
 	private static final String GET_ALL_PAYMENT = "SELECT * FROM payment;";
 	private static final String GET_PAYMENT_BY_ID = "SELECT * FROM payment WHERE paymentID = ?;";
-	private static final String GET_PAY_BY_ID_ADMIN = "SELECT paymentID,orderID,payType,totAmount,description,dateTime FROM payment WHERE paymentID = ?;";
+	private static final String GET_PAYMENT_BY_ORDER_ID = "SELECT * FROM payment WHERE orderID = ?;";
 	private static final String DELETE_PAYMENT_SQL = "DELETE FROM payment WHERE paymentID = ?;";
 	private static final String UPDATE_PAYMENT_CUSTOMER = "UPDATE payment SET payType = ?, description = ? WHERE paymentID = ?;";
 	private static final String UPDATE_PAYMENT_ADMIN = "UPDATE payment SET orderID = ?, totAmount = ?, payType = ?, description = ?, dateTime = ? WHERE paymentID = ?;";
@@ -27,7 +28,7 @@ public class PaymentService {
 		
 	}
 	
-	
+	/*
 	public static boolean insertPayment (String oderid, double payamount) {
 		boolean isSuccess = false;
 		
@@ -49,15 +50,42 @@ public class PaymentService {
 		}
 		
 		return isSuccess;
-	}
+	}*/
 	
+	
+	public static boolean addPayment (Payment payment) {
+		boolean isSuccess = false;
+		
+		try (Connection connection = DBconnect.getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(CREATE_PAYMENT)) {
+			
+			preparedStatement.setString(1, payment.getOrderID());
+			preparedStatement.setString(2, payment.getPaymentType());
+			preparedStatement.setDouble(3, payment.getPayAmount());
+			preparedStatement.setString(4, payment.getDescription());
+			int result = preparedStatement.executeUpdate();
+			
+			System.out.println(preparedStatement);
+			
+			if(result > 0) {
+				isSuccess = true;
+			} else {
+				isSuccess = false;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return isSuccess;
+	}
 	
 	public static List<Payment> selectPayment(int payID) {
 		
 		ArrayList<Payment> payment = new ArrayList<>();
 		
 		try (Connection connection = DBconnect.getConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(GET_PAY_BY_ID_ADMIN);) {
+				PreparedStatement preparedStatement = connection.prepareStatement(GET_PAYMENT_BY_ID);) {
 			
 			preparedStatement.setInt(1,payID);
 			System.out.println(preparedStatement);
@@ -71,6 +99,41 @@ public class PaymentService {
 				double amount = resultSet.getDouble("totAmount");
 				
 				Payment showPayment = new Payment(payID, orderid, date, type, desc, amount);
+				
+				payment.add(showPayment);
+				
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		
+		return payment;
+		
+	}
+	
+	
+	public static List<Payment> selectPaymentOrder(String orderID) {
+		
+		ArrayList<Payment> payment = new ArrayList<>();
+		
+		try (Connection connection = DBconnect.getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(GET_PAYMENT_BY_ORDER_ID);) {
+			
+			preparedStatement.setString(1,orderID);
+			System.out.println(preparedStatement);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				int paymentid = resultSet.getInt("paymentID");
+				String date = resultSet.getString("dateTime");
+				String type = resultSet.getString("payType");
+				String desc = resultSet.getString("description");
+				double amount = resultSet.getDouble("totAmount");
+				
+				Payment showPayment = new Payment(paymentid, orderID, date, type, desc, amount);
 				
 				payment.add(showPayment);
 				

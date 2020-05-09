@@ -11,13 +11,13 @@
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 -->
-<link href="CSS/paymentlist/css/main.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/css/util.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/vendor/animate/animate.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/vendor/select2/select2.min.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/vendor/perfect-scrollbar/perfect-scrollbar.css" type="text/css">
+<link href="CSS/payment/css/main.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/css/util.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/animate/animate.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/select2/select2.min.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/perfect-scrollbar/perfect-scrollbar.css" type="text/css">
 
 <title>List Payments</title>
 </head>
@@ -46,6 +46,7 @@
     <th>Payment Type</th>
     <th>Description</th>
     <th>Payment Date</th>
+    <th>View</th>
     <th>Edit</th>
     <th>Delete</th>
     </tr>
@@ -60,6 +61,7 @@
 				<td>${payment.paymentType}</td>
 				<td>${payment.description}</td>
 				<td>${payment.paymentDate}</td>
+				<td><a href= "ViewPaymentAdmin?paymentID=${payment.paymentID}" >View</a></td>
 				<td><a href= "editPaymentAdmin?paymentID=${payment.paymentID}" >Edit</a></td>
 				<td><a href= "deletePayment?paymentID=${payment.paymentID}" >Delete</a></td>
 			</tr>

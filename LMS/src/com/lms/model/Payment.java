@@ -31,6 +31,16 @@ public class Payment {
 		this.orderID = orderID;
 		this.payAmount = payAmount;
 	}
+	
+	
+
+	public Payment(String orderID, String paymentType, String description, double payAmount) {
+		super();
+		this.orderID = orderID;
+		this.paymentType = paymentType;
+		this.description = description;
+		this.payAmount = payAmount;
+	}
 
 	public Payment() {
 		
