@@ -5,6 +5,7 @@ import java.sql.*;
 
 import java.util.*;
 import com.lms.model.Order;
+import com.lms.model.Payment;
 
 
 public class OrderDBUtil {
@@ -30,7 +31,7 @@ public class OrderDBUtil {
 	
 	
 	
-	public ArrayList<Order> getOrderDetails(){
+public ArrayList<Order> getOrderDetails(){
 		ArrayList<Order> ordRecSet = new ArrayList<Order>(); 
 		try {	
 			Connection con = DBconnect.getConnection();
@@ -45,7 +46,6 @@ public class OrderDBUtil {
 						ord.setWeight(rs.getDouble(3));
 						ord.setOrderDate(rs.getString(4));
 						ord.setDeliveryDate(rs.getString(5));
-					
 					ordRecSet.add(ord);
 			 }
 		}
@@ -55,10 +55,9 @@ public class OrderDBUtil {
 		return ordRecSet;
 	}
 	
-	public static boolean deleteOrder (Order order) {
-		
+	
+public static boolean deleteOrder (Order order) {
 		boolean rowDelete = false;
-		
 		try (Connection connection = DBconnect.getConnection();
 			PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM orders WHERE orderId=?");) {
 			
@@ -71,8 +70,29 @@ public class OrderDBUtil {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return rowDelete;
-
 	}
+
+public static boolean updateOrder (Order order) {
+	boolean rowUpdate = false;
+	
+	try (Connection connection = DBconnect.getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement("UPDATE orders SET  orderId = ?, weight = ?, orderDate = ?, deliveryDate = ? WHERE orderId = ?;");) {
+		
+		preparedStatement.setInt(1, order.getOrderId());
+		preparedStatement.setInt(2, order.getCustId());
+		preparedStatement.setDouble(3, order.getWeight());
+		preparedStatement.setString(4, order.getOrderDate());
+		preparedStatement.setString(5, order.getDeliveryDate());
+
+		rowUpdate = preparedStatement.executeUpdate() > 0;	
+		System.out.println(preparedStatement);	
+		preparedStatement.close();
+		connection.close();				
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return rowUpdate;
+}
+
 }

@@ -136,5 +136,22 @@
   </servlet-mapping>
   
   
+    <welcome-file-list>
+  	<welcome-file>index.jsp</welcome-file>
+  	<welcome-file>dashboard.jsp</welcome-file>
+  	<welcome-file>logout.jsp</welcome-file>
+  	<welcome-file>registration.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>UpdateOrderServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.UpdateOrderServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>UpdateOrderServlet</servlet-name>
+  	<url-pattern>/UpdateOrder</url-pattern>
+  </servlet-mapping>
+  
+  
 </web-app>
 
