@@ -50,6 +50,8 @@ public class CustomerService {
 		Statement statement = connection.createStatement();
 		ResultSet resultset = statement.executeQuery(LIST_OF_CUSTOMERS);
 		
+		System.out.println(resultset);
+		
 		while (resultset.next()) {
 			int custId = Integer.parseInt(resultset.getString("custId"));
 			String firstName = resultset.getString("firstName");
@@ -62,10 +64,9 @@ public class CustomerService {
 			
 			Customer customer = new Customer(custId, firstName, lastName, email, phone, address, userName, password);
 			listCustomer.add(customer);
-						
+									
 			}
-		System.out.println(resultset);
-			
+		
 		resultset.close();
 		statement.close();
 		

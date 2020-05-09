@@ -46,9 +46,9 @@
 			<td style="text-align:center"><%= order.getWeight() %></td>
 			<td style="text-align:center"><%= order.getOrderDate() %></td>
 			<td style="text-align:center"><%= order.getDeliveryDate() %></td>
-			<td style="text-align:center"><input type="button" value="view"></td>
+			<td style="text-align:center"><a href= "ViewPaymentByOrder?orderId=<%= order.getOrderId() %>" >Payment</a></td>
+			<td><a href= "UpdateOrder?orderId=<%= order.getOrderId()%>" >Edit</a></td>			
 			<td><a href= "DeleteOrder?orderId=<%= order.getOrderId()%>" title="Delete this order"><img src="https://img.icons8.com/cotton/2x/delete-sign.png" style="width:35px;height:35px;"/></a></td>
-			<td><a href= "UpdateOrder?orderId=<%= order.getOrderId()%>" >Edit</a></td>
 		</tr>
 	<% } %>
 	</table>

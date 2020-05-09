@@ -6,7 +6,12 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
   
-  
+  <welcome-file-list>
+  	<welcome-file>index.jsp</welcome-file>
+  	<welcome-file>dashboard.jsp</welcome-file>
+  	<welcome-file>logout.jsp</welcome-file>
+  	<welcome-file>registration.jsp</welcome-file>
+  </welcome-file-list>
          
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
@@ -116,16 +121,17 @@
   	<servlet-name>ListPayment</servlet-name>
   	<url-pattern>/listPayment</url-pattern>
   </servlet-mapping>
-
-
-
-  <welcome-file-list>
-  	<welcome-file>index.jsp</welcome-file>
-  	<welcome-file>dashboard.jsp</welcome-file>
-  	<welcome-file>logout.jsp</welcome-file>
-  	<welcome-file>registration.jsp</welcome-file>
-  </welcome-file-list>
   
+  
+  <servlet>
+  	<servlet-name>ViewPaymentServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.ViewPaymentServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>ViewPaymentServlet</servlet-name>
+  	<url-pattern>/ViewPaymentAdmin</url-pattern>
+  </servlet-mapping>
+
   <servlet>
   	<servlet-name>DeleteOrderServlet</servlet-name>
   	<servlet-class>com.lms.servlet.DeleteOrderServlet</servlet-class>
@@ -136,6 +142,7 @@
   </servlet-mapping>
   
   
+
     <welcome-file-list>
   	<welcome-file>index.jsp</welcome-file>
   	<welcome-file>dashboard.jsp</welcome-file>
@@ -151,7 +158,15 @@
   	<servlet-name>UpdateOrderServlet</servlet-name>
   	<url-pattern>/UpdateOrder</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+  	<servlet-name>ViewPaymentByOrderServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.ViewPaymentByOrderServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>ViewPaymentByOrderServlet</servlet-name>
+  	<url-pattern>/ViewPaymentByOrder</url-pattern>
+  </servlet-mapping>
+
   
 </web-app>
 
