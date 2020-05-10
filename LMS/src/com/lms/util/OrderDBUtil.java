@@ -95,4 +95,38 @@ public static boolean updateOrder (Order order) {
 	return rowUpdate;
 }
 
+public static List<Order> selectOrder(int orderId) {
+	
+	ArrayList<Order> order = new ArrayList<>();
+	
+	try (Connection connection = DBconnect.getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM orders WHERE orderId = ?;");) {
+		
+		preparedStatement.setInt(1,orderId);
+		System.out.println(preparedStatement);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		
+		while (resultSet.next()) {
+			int orderid = resultSet.getInt("orderId");
+			int custId = resultSet.getInt("custId");
+			double weight = resultSet.getDouble("weight");
+			String orderDate = resultSet.getString("orderDate");
+			String deliveryDate = resultSet.getString("deliveryDate");
+			
+			Order showOrder = new Order(orderid, custId, weight, orderDate, deliveryDate);
+			
+			order.add(showOrder);
+			
+		}
+		
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+		
+	}
+	
+	return order;
+	
+}
+
 }

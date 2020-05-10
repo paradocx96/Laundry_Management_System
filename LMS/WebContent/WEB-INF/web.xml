@@ -158,6 +158,7 @@
   	<servlet-name>UpdateOrderServlet</servlet-name>
   	<url-pattern>/UpdateOrder</url-pattern>
   </servlet-mapping>
+ 
   <servlet>
   	<servlet-name>ViewPaymentByOrderServlet</servlet-name>
   	<servlet-class>com.lms.servlet.ViewPaymentByOrderServlet</servlet-class>
@@ -167,6 +168,14 @@
   	<url-pattern>/ViewPaymentByOrder</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+  	<servlet-name>EditOrderServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.EditOrderServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>EditOrderServlet</servlet-name>
+  	<url-pattern>/EditOrder</url-pattern>
+  </servlet-mapping>
   
 </web-app>
 

@@ -21,6 +21,10 @@ public class UpdateOrderServlet extends HttpServlet {
     public UpdateOrderServlet() {
         super();
     }
+    
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -32,10 +36,6 @@ public class UpdateOrderServlet extends HttpServlet {
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-	
 	private void updateOrder(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, IOException {
 		
 		int orderId = Integer.parseInt(request.getParameter("orderId"));
