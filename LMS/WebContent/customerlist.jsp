@@ -11,13 +11,13 @@
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
  -->
-<link href="CSS/paymentlist/css/main.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/css/util.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/vendor/animate/animate.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/vendor/select2/select2.min.css" rel="stylesheet" type="text/css">
-<link href="CSS/paymentlist/vendor/perfect-scrollbar/perfect-scrollbar.css" type="text/css">
+<link href="CSS/payment/css/main.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/css/util.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/animate/animate.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/select2/select2.min.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/perfect-scrollbar/perfect-scrollbar.css" type="text/css">
 
 <title>Customer Management</title>
 </head>
