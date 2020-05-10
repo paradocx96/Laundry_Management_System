@@ -127,6 +127,41 @@ public static List<Order> selectOrder(int orderId) {
 	
 	return order;
 	
+	}
+
+public static List<Order> selectAllOrders() {
+	
+	List<Order> orders = new ArrayList<>();
+	
+	try (Connection connection = DBconnect.getConnection();
+		PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM orders;");) {
+		System.out.println(preparedStatement);
+		ResultSet resultSet = preparedStatement.executeQuery();
+		
+		while(resultSet.next()) {
+			int orderid = resultSet.getInt("orderId");
+			int custId = resultSet.getInt("custId");
+			double weight = resultSet.getDouble("weight");
+			String orderDate = resultSet.getString("orderDate");
+			String deliveryDate = resultSet.getString("deliveryDate");
+			
+			Order showOrder = new Order(orderid, custId, weight, orderDate, deliveryDate);
+			
+			orders.add(showOrder);
+		}
+		
+	} catch (SQLException e) {
+		printSQLException(e);
+	}	
+	
+	return orders;
+}
+
+
+
+private static void printSQLException(SQLException e) {
+	// TODO Auto-generated method stub
+	
 }
 
 }
