@@ -68,7 +68,7 @@ public class AddEmployeeServlet extends HttpServlet {
 			
 		}
 		
-		response.sendRedirect("admindashboard.jsp");
+		response.sendRedirect("adminlogin.jsp");
 	}
 
 	

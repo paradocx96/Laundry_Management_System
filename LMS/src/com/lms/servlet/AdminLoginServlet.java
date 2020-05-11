@@ -29,7 +29,7 @@ public class AdminLoginServlet extends HttpServlet {
 			String userName = request.getParameter("userName");
 			String password = request.getParameter("password");
 			
-			PrintWriter out = response.getWriter();
+		
 			
 			
 			try {
@@ -42,14 +42,14 @@ public class AdminLoginServlet extends HttpServlet {
 						
 					if(result.next()) {
 						
-						//HttpSession session = request.getSession();
-						//session.setAttribute("userName", userName);
+						HttpSession session = request.getSession();
+						session.setAttribute("userName", userName);
 						response.sendRedirect("admindashboard.jsp");
 						
 					}else {
 						
 						
-						out.println("User name or passowrd Invalid");
+						response.sendRedirect("error.jsp");
 						
 					}
 			
