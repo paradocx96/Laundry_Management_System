@@ -236,4 +236,5 @@
    <script src="CSS/dashboard/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
 </body>
 
+
 </html>

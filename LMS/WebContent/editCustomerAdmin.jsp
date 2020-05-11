@@ -142,5 +142,6 @@
     <!-- Main JS-->
     <script src="CSS/regform/js/global.js"></script>
 
+
 </body>
 </html>

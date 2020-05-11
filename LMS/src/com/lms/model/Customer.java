@@ -88,5 +88,4 @@ public class Customer {
 		return password;
 	}
 	
-
 }
