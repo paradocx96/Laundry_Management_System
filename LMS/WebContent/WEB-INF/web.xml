@@ -141,15 +141,7 @@
   	<url-pattern>/DeleteOrder</url-pattern>
   </servlet-mapping>
   
-  
-
-    <welcome-file-list>
-  	<welcome-file>index.jsp</welcome-file>
-  	<welcome-file>dashboard.jsp</welcome-file>
-  	<welcome-file>logout.jsp</welcome-file>
-  	<welcome-file>registration.jsp</welcome-file>
-  </welcome-file-list>
-  
+    
   <servlet>
   	<servlet-name>UpdateOrderServlet</servlet-name>
   	<servlet-class>com.lms.servlet.UpdateOrderServlet</servlet-class>
@@ -175,6 +167,34 @@
   <servlet-mapping>
   	<servlet-name>EditOrderServlet</servlet-name>
   	<url-pattern>/EditOrder</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>RegistrationAdminServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.RegistrationAdminServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>RegistrationAdminServlet</servlet-name>
+  	<url-pattern>/RegistrationAdmin</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>DeleteCustomerServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.DeleteCustomerServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>DeleteCustomerServlet</servlet-name>
+  	<url-pattern>/DeleteCustomer</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>EditCustomer</servlet-name>
+  	<servlet-class>com.lms.servlet.EditCustomerServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>EditCustomer</servlet-name>
+  	<url-pattern>/editCustomer</url-pattern>
   </servlet-mapping>
   
 </web-app>

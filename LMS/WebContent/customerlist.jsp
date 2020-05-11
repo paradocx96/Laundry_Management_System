@@ -37,6 +37,7 @@
 <div class="wrap-table100">
 <div class="table100">
 <h1>Customer List</h1>
+<input type="button" align="right" onclick="window.location.href='admindashboard.jsp'" value="Dashboared">
 	<table>
 		<thead>
 			<tr class="table100-head">
@@ -64,9 +65,9 @@
 					<td><c:out value="${customer.phone}" /></td>
 					<td><c:out value="${customer.userName}" /></td>
 					<td><c:out value="${customer.password}" /></td>
-					<th>View</th>
-					<td>Edit</td>
-					<td>Delete</td>
+					<th><a href= "ViewPaymentAdmin?custId=${customer.custId}" >View</a></td>
+					<td><a href= "editCustomer?custId=${customer.custId}" >Edit</a></td>
+					<td><a href= "DeleteCustomer?custId=${customer.custId}" >Delete</a></td>
 				</tr>
 			</tbody>					
 		</c:forEach>	

@@ -45,10 +45,15 @@ public class Customer {
 		this.email = email;
 		this.phone = phone;
 		this.address = address;
-		
-		
 	}
 	
+	
+	
+	public Customer(int custId) {
+		super();
+		this.custId = custId;
+	}
+
 	public int getCustId() {
 		return custId;
 	}

@@ -1,11 +1,9 @@
 package com.lms.servlet;
 
-import java.io.*;
-import java.sql.*;
-import java.util.*;
-import javax.servlet.*;
-
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,17 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 import com.lms.model.Customer;
 import com.lms.service.CustomerService;
 
-@WebServlet("/RegistrationServlet")
-public class RegistrationServlet extends HttpServlet {
+
+@WebServlet("/RegistrationAdminServlet")
+public class RegistrationAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+    
 	private CustomerService customerService;
 	
-    public RegistrationServlet() {
+    public RegistrationAdminServlet() {
         this.customerService = new CustomerService();
     }
-    
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doGet(request, response);
 		
 	}
@@ -51,7 +50,7 @@ public class RegistrationServlet extends HttpServlet {
 		Customer newCustomer = new Customer(fname, lname, email, pnumber, address, username, password);
 		
 		customerService.addCustomer(newCustomer);
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("customerlist.jsp");
 		
     	
     }

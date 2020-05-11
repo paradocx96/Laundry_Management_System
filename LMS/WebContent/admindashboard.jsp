@@ -46,7 +46,7 @@
 					<li><a class="" href="customerlist.jsp">
 						<span class="fa fa-arrow-right">&nbsp;</span> Customer List
 					</a></li>
-					<li><a class="" href="registration.jsp">
+					<li><a class="" href="addCustomerAdmin.jsp">
 						<span class="fa fa-arrow-right">&nbsp;</span> Add Customer
 					</a></li>
 					<li><a class="" href="#">
@@ -196,6 +196,24 @@
 				</div>
 				
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-teal panel-widget border-right">
+						<div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
+							<div class="large"><% try { Connection con = DBconnect.getConnection();
+														Statement st = con.createStatement();
+														String sql = "SELECT SUM(weight) FROM orders";
+														ResultSet rs = st.executeQuery(sql);
+														String Countrow="";
+														while(rs.next()){
+															Countrow = rs.getString(1);
+															out.println(Countrow);
+															}} catch (Exception e){ e.printStackTrace();} %>Kg
+							</div>
+							<div class="text-muted">Total Service Weight</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-red panel-widget ">
 						<div class="row no-padding"><em class="fa fa-xl fa-search color-red"></em>
 							<div class="large">#NULL</div>
@@ -218,6 +236,24 @@
 															}} catch (Exception e){ e.printStackTrace();} %>
 							</div>
 							<div class="text-muted">Total Payment</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+					<div class="panel panel-blue panel-widget border-right">
+						<div class="row no-padding"><em class="fa fa-xl fa-bar-chart color-orange"></em>
+							<div class="large">Rs. <% try { Connection con = DBconnect.getConnection();
+														Statement st = con.createStatement();
+														String sql = "SELECT SUM(totAmount) FROM payment";
+														ResultSet rs = st.executeQuery(sql);
+														String Countrow="";
+														while(rs.next()){
+															Countrow = rs.getString(1);
+															out.println(Countrow);
+															}} catch (Exception e){ e.printStackTrace();} %>
+							</div>
+							<div class="text-muted">Total Sale</div>
 						</div>
 					</div>
 				</div>
