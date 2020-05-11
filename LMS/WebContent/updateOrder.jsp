@@ -2,7 +2,7 @@
 <%@page import="com.lms.util.OrderDBUtil"%>
 <%@ page import="java.util.ArrayList" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="com.lms.model.Order,com.lms.util.*,java.util.*" %>
+<%@ page import="com.lms.util.*,java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
@@ -39,13 +39,13 @@
 	<legend>New Order</legend><br>
 	<form method="post" action="UpdateOrderServlet">
 	
-<%
+<!-- 
 	List<Order> orders = OrderDBUtil.selectAllOrders();
 	request.setAttribute("orders",orders);
-%>
+ -->
 	
 		<table style="width: 100%;">
-		<c:forEach items="${orders}" var="order">
+		<c:forEach items="${UpdateOrder}" var="order">
 		<tr>
 			<td>Order Id</td>
 			<td><input type="text" name="orderId" id="orderId" value="${order.orderId}"></td>
@@ -60,11 +60,11 @@
 		</tr>
 		<tr>
 			<td>Order Date</td>
-			<td><input type="date" name="orderDate" id="orderDate" value="${order.orderDate}"></td>
+			<td><input type="text" name="orderDate" id="orderDate" value="${order.orderDate}"></td>
 		</tr>
 		<tr>
 			<td>Delivery Date</td>
-			<td><input type="date" name="deliveryDate" id="deliveryDate" value="${order.deliveryDate}"></td>
+			<td><input type="text" name="deliveryDate" id="deliveryDate" value="${order.deliveryDate}"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="right"><input type="submit" value="Submit" /></td>

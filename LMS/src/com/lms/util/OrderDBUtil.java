@@ -77,13 +77,13 @@ public static boolean updateOrder (Order order) {
 	boolean rowUpdate = false;
 	
 	try (Connection connection = DBconnect.getConnection();
-		PreparedStatement preparedStatement = connection.prepareStatement("UPDATE orders SET  orderId = ?, weight = ?, orderDate = ?, deliveryDate = ? WHERE orderId = ?;");) {
+		PreparedStatement preparedStatement = connection.prepareStatement("UPDATE orders SET custId = ?, weight = ?, orderDate = ?, deliveryDate = ? WHERE orderId = ?;");) {
 		
-		preparedStatement.setInt(1, order.getOrderId());
-		preparedStatement.setInt(2, order.getCustId());
-		preparedStatement.setDouble(3, order.getWeight());
-		preparedStatement.setString(4, order.getOrderDate());
-		preparedStatement.setString(5, order.getDeliveryDate());
+		preparedStatement.setInt(1, order.getCustId());
+		preparedStatement.setDouble(2, order.getWeight());
+		preparedStatement.setString(3, order.getOrderDate());
+		preparedStatement.setString(4, order.getDeliveryDate());
+		preparedStatement.setInt(5, order.getOrderId());
 
 		rowUpdate = preparedStatement.executeUpdate() > 0;	
 		System.out.println(preparedStatement);	
@@ -107,13 +107,12 @@ public static List<Order> selectOrder(int orderId) {
 		ResultSet resultSet = preparedStatement.executeQuery();
 		
 		while (resultSet.next()) {
-			int orderid = resultSet.getInt("orderId");
 			int custId = resultSet.getInt("custId");
 			double weight = resultSet.getDouble("weight");
 			String orderDate = resultSet.getString("orderDate");
 			String deliveryDate = resultSet.getString("deliveryDate");
 			
-			Order showOrder = new Order(orderid, custId, weight, orderDate, deliveryDate);
+			Order showOrder = new Order(orderId, custId, weight, orderDate, deliveryDate);
 			
 			order.add(showOrder);
 			
