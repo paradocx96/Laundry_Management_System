@@ -22,7 +22,6 @@
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
  
- 
    <servlet>
     <servlet-name>AddOrderServlet</servlet-name>
     <servlet-class>com.lms.servlet.AddOrderServlet</servlet-class>
@@ -141,7 +140,15 @@
   	<url-pattern>/DeleteOrder</url-pattern>
   </servlet-mapping>
   
-    
+  
+
+    <welcome-file-list>
+  	<welcome-file>index.jsp</welcome-file>
+  	<welcome-file>dashboard.jsp</welcome-file>
+  	<welcome-file>logout.jsp</welcome-file>
+  	<welcome-file>registration.jsp</welcome-file>
+  </welcome-file-list>
+  
   <servlet>
   	<servlet-name>UpdateOrderServlet</servlet-name>
   	<servlet-class>com.lms.servlet.UpdateOrderServlet</servlet-class>
@@ -170,16 +177,60 @@
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>RegistrationAdminServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.RegistrationAdminServlet</servlet-class>
-  </servlet>  
+    <servlet-name>AddEmployeeServlet</servlet-name>
+    <servlet-class>com.lms.servlet.AddEmployeeServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
-  	<servlet-name>RegistrationAdminServlet</servlet-name>
-  	<url-pattern>/RegistrationAdmin</url-pattern>
+    <servlet-name>AddEmployeeServlet</servlet-name>
+    <url-pattern>/AddEmployee</url-pattern>
   </servlet-mapping>
   
-  
+   <servlet>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <servlet-class>com.lms.servlet.AdminLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <url-pattern>/AdminLogin</url-pattern>
+  </servlet-mapping>
+ 
+ 	<servlet>
+    <servlet-name>DeleteEmployeeServlet</servlet-name>
+    <servlet-class>com.lms.servlet.DeleteEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteEmployeeServlet</servlet-name>
+    <url-pattern>/deleteEmployee</url-pattern>
+  </servlet-mapping>
+ 	
+ 	<servlet>
+    <servlet-name>UpdateEmployeeServlet</servlet-name>
+    <servlet-class>com.lms.servlet.UpdateEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateEmployeeServlet</servlet-name>
+    <url-pattern>/UpdateEmployee</url-pattern>
+  </servlet-mapping>
+ 
   <servlet>
+    <servlet-name>DisplayEmployeeList</servlet-name>
+    <servlet-class>com.lms.servlet.DisplayEmployeeList</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayEmployeeList</servlet-name>
+    <url-pattern>/EmployeeList</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet>
+    <servlet-name>EditEmployeeServlet</servlet-name>
+    <servlet-class>com.lms.servlet.EditEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditEmployeeServlet</servlet-name>
+    <url-pattern>/editEmployee</url-pattern>
+  </servlet-mapping>	
+ 	
+ <servlet>
   	<servlet-name>DeleteCustomerServlet</servlet-name>
   	<servlet-class>com.lms.servlet.DeleteCustomerServlet</servlet-class>
   </servlet>  

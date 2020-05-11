@@ -46,6 +46,17 @@
 					<div class="foot-lnk">
 						<a href="#forgot">Forgot Password?</a>
 					</div>
+					
+					<br>
+					<div class="foot-lnk">
+						<a href="registration.jsp">Sign up?</a>
+					</div>	
+					
+					<br>	
+					<br>
+					<center>
+						<a href="adminlogin.jsp"> <p style="color:#808080;">Admin Login</p></a>
+					</center>
 				
 				</div>
 			</div>
