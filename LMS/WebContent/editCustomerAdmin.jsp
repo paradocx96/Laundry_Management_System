@@ -5,6 +5,9 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.lms.model.Customer,com.lms.service.*,com.lms.util.*,java.util.*" %>
     
 <meta charset="ISO-8859-1">
 
@@ -33,24 +36,34 @@
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Registration Form</h2>
+                    <h2 class="title">Update Customer Info</h2>
                 </div>
                 <div class="card-body">
-                    <form action="Registration" method="post">
-					
+                    <form action="RegistrationAdmin" method="post">
+						<c:forEach var="customer" items="${editCustomer}" >
+						
+						<div class="form-row">
+                            <div class="name">Customer ID</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="cusid" value="${customer.custId}" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+						
                         <div class="form-row m-b-55">
                             <div class="name">Name</div>
                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="fname">
+                                            <input class="input--style-5" type="text" name="fname" value="${customer.firstName}">
                                             <label class="label--desc">first name</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="lname">
+                                            <input class="input--style-5" type="text" name="lname" value="${customer.lastName}">
                                             <label class="label--desc">last name</label>
                                         </div>
                                     </div>
@@ -62,7 +75,7 @@
                             <div class="name">Address</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="address">
+                                    <input class="input--style-5" type="text" name="address" value="${customer.address}">
                                 </div>
                             </div>
                         </div>
@@ -72,7 +85,7 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
+                                    <input class="input--style-5" type="email" name="email" value="${customer.email}">
                                 </div>
                             </div>
                         </div>
@@ -81,7 +94,7 @@
                             <div class="name">Phone</div>
                             <div class="value">
 								<div class="input-group">
-                                    <input class="input--style-5" type="text" name="pnumber">
+                                    <input class="input--style-5" type="text" name="pnumber" value="${customer.phone}">
                                 </div>
                             </div>
                         </div>
@@ -90,7 +103,7 @@
                             <div class="name">Username</div>
                             <div class="value">
 								<div class="input-group">
-                                    <input class="input--style-5" type="text" name="username">
+                                    <input class="input--style-5" type="text" name="username" value="${customer.userName}">
                                 </div>
                             </div>
                         </div>
@@ -99,44 +112,13 @@
                             <div class="name">Password</div>
                             <div class="value">
 								<div class="input-group">
-                                    <input class="input--style-5" type="password" name="password">
+                                    <input class="input--style-5" type="password" name="password" value="${customer.password}">
                                 </div>
                             </div>
                         </div>
 						
-						<!--
-                        <div class="form-row">
-                            <div class="name">Subject</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                            <option disabled="disabled" selected="selected">Choose option</option>
-                                            <option>Subject 1</option>
-                                            <option>Subject 2</option>
-                                            <option>Subject 3</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-						-->
-						
-                        <div class="form-row p-t-20">
+						<div class="form-row p-t-20">
                             <label class="label label--block">I agree all statements in Terms of service</label>
-							<!--
-                            <div class="p-t-15">
-                                <label class="radio-container m-r-55">Yes
-                                    <input type="radio" checked="checked" name="exist">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container">No
-                                    <input type="radio" name="exist">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-							-->
                         </div>
 						
 						
@@ -144,6 +126,7 @@
                             <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
 							<button class="btn btn--radius-2 btn--red" type="reset">Reset</button>
                         </div>
+                        </c:forEach>
                     </form>
                 </div>
             </div>

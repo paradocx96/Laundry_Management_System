@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.*;
 
 import com.lms.model.Customer;
+import com.lms.model.Payment;
 import com.lms.util.DBconnect;
 
 public class CustomerService {
@@ -12,6 +13,8 @@ public class CustomerService {
 	private static final String ADD_NEW_CUSTOMER = "INSERT INTO customer" + "(firstName,lastName,address,email,phone,userName,password) VALUES" + "(?,?,?,?,?,?,?);";
 	private static final String UPDATE_USERS_SQL = "UPDATE customer SET firstName = ?,lastName= ?, address = ?, email = ?, phone = ? where custId = ?;";
 	private static final String LIST_OF_CUSTOMERS = "SELECT * FROM customer";
+	private static final String DELETE_CUSTOMER_SQL = "DELETE FROM customer WHERE custId = ?;";
+	private static final String GET_CUSTOMER_BY_ID = "SELECT * FROM customer WHERE custId = ?";
 	
 	public CustomerService () {
 		
@@ -143,6 +146,68 @@ public class CustomerService {
 			
 			return rowUpdate;
 		}
+	
+	
+	public static boolean deleteCustomer (Customer customer) { //By IT19180526
+		
+		boolean row = false;
+		
+		try (Connection connection = DBconnect.getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CUSTOMER_SQL);) {
+			
+			preparedStatement.setInt(1, customer.getCustId());
+			row = preparedStatement.executeUpdate() > 0;
+			
+			System.out.println(preparedStatement);
+			
+			preparedStatement.close();
+			connection.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return row;
+		
+	}
+	
+	
+	public static List<Customer> selectCustomerById(int custId) { //By IT19180526
+		
+		ArrayList<Customer> customer = new ArrayList<>();
+		
+		try (Connection connection = DBconnect.getConnection();
+				PreparedStatement preparedStatement = connection.prepareStatement(GET_CUSTOMER_BY_ID);) {
+			
+			preparedStatement.setInt(1,custId);
+			System.out.println(preparedStatement);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				int cusid = resultSet.getInt("custId");
+		    	String firstname = resultSet.getString("firstName");
+		    	String lastname = resultSet.getString("lastName");
+		    	String email = resultSet.getString("email");
+		    	int phone = resultSet.getInt("phone");
+		    	String address = resultSet.getString("address");
+		    	String username = resultSet.getString("userName");
+		    	String password = resultSet.getString("password");
+				
+		    	Customer customerArray = new Customer(cusid, firstname, lastname, email, phone, address, username, password);
+				
+		    	customer.add(customerArray);
+							
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		
+		return customer;
+		
+	}
 		
 	
 }

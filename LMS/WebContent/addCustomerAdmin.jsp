@@ -23,6 +23,8 @@
 
     <!-- Main CSS-->
     <link href="CSS/regform/css/main.css" rel="stylesheet" media="all">
+    
+    <%@ page import="com.lms.model.Customer,com.lms.service.*,com.lms.util.*,java.util.*" %>
 
 <title>Register</title>
 
@@ -36,7 +38,7 @@
                     <h2 class="title">Registration Form</h2>
                 </div>
                 <div class="card-body">
-                    <form action="Registration" method="post">
+                    <form action="RegistrationAdmin" method="post">
 					
                         <div class="form-row m-b-55">
                             <div class="name">Name</div>
