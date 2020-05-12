@@ -1,6 +1,7 @@
 package com.lms.servlet;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -10,9 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Order;
-import com.lms.model.Payment;
-import com.lms.service.PaymentService;
-import com.lms.util.OrderDBUtil;
+import com.lms.service.OrderService;
 
 @WebServlet("/UpdateOrderServlet")
 public class UpdateOrderServlet extends HttpServlet {
@@ -45,7 +44,7 @@ public class UpdateOrderServlet extends HttpServlet {
 		String deliveryDate = request.getParameter("deliveryDate");
 		
 		Order order = new Order(orderId, custId, weight, orderDate, deliveryDate);
-		OrderDBUtil.updateOrder(order);
+		OrderService.updateOrder(order);
 		response.sendRedirect("orderlist.jsp");
 		
 	}	

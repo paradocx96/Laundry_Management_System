@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Order;
-import com.lms.util.OrderDBUtil;
+import com.lms.service.OrderService;
 
 @WebServlet("/DeleteOrderServlet")
 public class DeleteOrderServlet extends HttpServlet {
@@ -40,7 +40,7 @@ public class DeleteOrderServlet extends HttpServlet {
         
         System.out.println(orderId);
         Order order = new Order(orderId);
-    	OrderDBUtil.deleteOrder(order);
+    	OrderService.deleteOrder(order);
         response.sendRedirect("orderlist.jsp");
  
     }

@@ -1,5 +1,5 @@
 <%@page import="com.lms.model.Order"%>
-<%@page import="com.lms.util.OrderDBUtil"%>
+<%@page import="com.lms.service.OrderService"%>
 <%@ page import="java.util.ArrayList" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -21,23 +21,26 @@
 
 </head>
 <body>
+	<table>
+		<tr>
+			<th WIDTH="350" style="text-align:left"><h1>Order List</h1></th>
+			<th WIDTH="400" style="text-align:right"><input type="button" value="Add New Order" onclick="window.location.href = '/LMS/order.jsp';"></th>
+		</tr>
+	</table>
 
-	<h1>Order List</h1>
 	<%
-		OrderDBUtil dbUtil = new OrderDBUtil();
+		OrderService serv = new OrderService();
 		ArrayList<Order> ordRec = new ArrayList<Order>();
-		ordRec = dbUtil.getOrderDetails();
+		ordRec = serv.getOrderDetails();
 		
 	%>
-
-	<table WIDTH="650">
+	<table WIDTH="745">
 		<tr>
-			<th WIDTH="100">Order ID</th>
+			<th WIDTH="110">Order ID</th>
 			<th WIDTH="160">Customer ID</th>
 			<th WIDTH="80">Weight</th>
 			<th WIDTH="150">Order Date</th>
 			<th WIDTH="150">Delivery Date</th>
-			<th WIDTH="150">Payment</th>
 		</tr>
 	<% for(Order order : ordRec ){ %>
 		<tr>
@@ -46,9 +49,15 @@
 			<td style="text-align:center"><%= order.getWeight() %></td>
 			<td style="text-align:center"><%= order.getOrderDate() %></td>
 			<td style="text-align:center"><%= order.getDeliveryDate() %></td>
-			<td style="text-align:center"><a href= "ViewPaymentByOrder?orderId=<%= order.getOrderId() %>" >Payment</a></td>
-			<td><a href= "EditOrder?orderId=<%= order.getOrderId()%>" >Edit</a></td>			
-			<td><a href= "DeleteOrder?orderId=<%= order.getOrderId()%>" title="Delete this order"><img src="https://img.icons8.com/cotton/2x/delete-sign.png" style="width:35px;height:35px;"/></a></td>
+			<td style="text-align:center">
+				<a href= "ViewPaymentByOrder?orderId=<%= order.getOrderId() %>" class="myButton" title="View Payment Details">Payment</a>
+			</td>
+			<td style="text-align:center">
+				<a href= "EditOrder?orderId=<%= order.getOrderId()%>" class="myButtonBlue" title="Edit Order Details">Edit</a>
+			</td>
+			<td style="text-align:center">
+				<a href= "DeleteOrder?orderId=<%= order.getOrderId()%>" class="myButtonRed" title="Delete Order">Delete</a>
+			</td>
 		</tr>
 	<% } %>
 	</table>

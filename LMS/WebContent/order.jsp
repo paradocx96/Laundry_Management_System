@@ -34,7 +34,7 @@
 		<table style="width: 100%;">
 		<tr>
 			<td>Order Id</td>
-			<td><input type="text" name="orderId"></td>
+			<td><input type="text" name="orderId" value="Auto Generated" readonly="readonly"  style="color:#B0B0B0;"></td>
 		</tr>
 		<tr>
 			<td>Customer Id</td>

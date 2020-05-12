@@ -2,7 +2,7 @@
 body{
 	background-image: url('https://files.123freevectors.com/wp-content/original/130978-blue-and-white-polygon-background-template-graphic.jpg');
 	font-family: 'Open Sans Condensed', arial, sans;
-	width: 650px;
+	width: 750px;
 	padding: 20px;
 	margin: 40px auto;
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
@@ -86,4 +86,72 @@ input[type="button"]:hover,
 input[type="submit"]:hover {
 	background:linear-gradient(to bottom, #34CACA 5%, #30C9C9 100%);
 	background-color:#34CACA;
+}
+
+.myButton {
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:10px;
+	padding:6px 8px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+.myButton:hover {
+	background-color:#5cbf2a;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+.myButtonBlue {
+	background-color:#7892c2;
+	border-radius:28px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:10px;
+	padding:6px 11px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.myButtonBlue:hover {
+	background-color:#476e9e;
+}
+.myButtonBlue:active {
+	position:relative;
+	top:1px;
+}
+
+.myButtonRed {
+	background-color:#ff8080;
+	border-radius:28px;
+	border:1px solid #bf1b0f;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:10px;
+	padding:6px 7px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #fa0830;
+}
+.myButtonRed:hover {
+	background-color:#ff0a0a;
+}
+.myButtonRed:active {
+	position:relative;
+	top:1px;
+}
+
+div {
+  opacity: 0.5;
 }
