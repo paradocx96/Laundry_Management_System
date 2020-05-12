@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Order;
+<<<<<<< HEAD
 import com.lms.service.OrderService;
+=======
+import com.lms.util.OrderDBUtil;
+>>>>>>> branch 'master' of https://github.com/paradocx96/OOP-Project.git
 
 @WebServlet("/UpdateOrderServlet")
 public class UpdateOrderServlet extends HttpServlet {
