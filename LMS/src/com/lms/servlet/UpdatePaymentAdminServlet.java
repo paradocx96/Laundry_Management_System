@@ -1,8 +1,7 @@
 package com.lms.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Payment;
-import com.lms.service.PaymentService;
+import com.lms.service.IPaymentService;
+import com.lms.service.PaymentServiceImpl;
 
 
 @WebServlet("/UpdatePaymentAdminServlet")
@@ -22,37 +22,30 @@ public class UpdatePaymentAdminServlet extends HttpServlet {
         super();
     }
     
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-		
-	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		try {
-			updatePaymentAdmin(request,response);
-		} catch (ServletException | IOException | SQLException e) {
-			e.printStackTrace();
-		}		
-		
-	}
-	
-	private void updatePaymentAdmin (HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, IOException {
-		
-		int paymentid = Integer.parseInt(request.getParameter("paymentid"));
-		String orderid = request.getParameter("orderid");
-		double payamount = Double.parseDouble(request.getParameter("payamount"));
-		String paytype = request.getParameter("paytype");
-		String description = request.getParameter("description");
-		String paydatetime = request.getParameter("paydatetime");
-		
-		Payment payment = new Payment(paymentid, orderid, paydatetime, paytype, description, payamount);
-		PaymentService.updatePaymentAdmin(payment);
-		response.sendRedirect("paymentList.jsp");
-		
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
 	}
 	
 	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		
+		Payment payment = new Payment();
+		
+		payment.setPaymentID(Integer.parseInt(request.getParameter("paymentid")));
+		payment.setOrderID(request.getParameter("orderid"));
+		payment.setPaymentDate(request.getParameter("paydatetime"));
+		payment.setPaymentType(request.getParameter("paytype"));
+		payment.setPayAmount(Double.parseDouble(request.getParameter("payamount")));
+		payment.setDescription(request.getParameter("description"));
+		
+		IPaymentService iPaymentService = new PaymentServiceImpl();
+		iPaymentService.updatePaymentAdmin(payment);
+		
+		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/paymentList.jsp");
+		requestDispatcher.forward(request, response);
+		
+	}	
 	
 
 }

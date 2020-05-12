@@ -113,22 +113,22 @@
 
   
   <servlet>
-  	<servlet-name>ListPayment</servlet-name>
+  	<servlet-name>ListPaymentServlet</servlet-name>
   	<servlet-class>com.lms.servlet.ListPaymentServlet</servlet-class>
   </servlet>  
   <servlet-mapping>
-  	<servlet-name>ListPayment</servlet-name>
-  	<url-pattern>/listPayment</url-pattern>
+  	<servlet-name>ListPaymentServlet</servlet-name>
+  	<url-pattern>/ListPayment</url-pattern>
   </servlet-mapping>
   
   
   <servlet>
-  	<servlet-name>ViewPaymentServlet</servlet-name>
+  	<servlet-name>ViewPayment</servlet-name>
   	<servlet-class>com.lms.servlet.ViewPaymentServlet</servlet-class>
   </servlet>  
   <servlet-mapping>
-  	<servlet-name>ViewPaymentServlet</servlet-name>
-  	<url-pattern>/ViewPaymentAdmin</url-pattern>
+  	<servlet-name>ViewPayment</servlet-name>
+  	<url-pattern>/ViewPayment</url-pattern>
   </servlet-mapping>
 
   <servlet>

@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Order;
-import com.lms.model.Payment;
-import com.lms.service.PaymentService;
 import com.lms.util.OrderDBUtil;
 
 

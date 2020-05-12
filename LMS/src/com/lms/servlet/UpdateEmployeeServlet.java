@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Employee;
-import com.lms.model.Payment;
 import com.lms.service.EmployeeService;
-import com.lms.service.PaymentService;
 
 /**
  * Servlet implementation class UpdateEmployeeServlet

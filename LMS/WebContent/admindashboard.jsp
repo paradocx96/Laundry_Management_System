@@ -266,7 +266,7 @@
 			</div>
 		</div><!--/.row-->
 		
-		<!-- 
+	
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
@@ -305,6 +305,9 @@
 		<div class="row">	
 		
 			<div class="col-md-6">
+			<form action="ListPayment" method="POST">
+					<input type="submit" value="Payment List"/>
+				</form>
 			</div><!--/.col-->
 		
 			<div class="col-sm-12">
