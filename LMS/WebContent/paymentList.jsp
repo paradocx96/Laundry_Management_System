@@ -5,12 +5,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<meta charset="ISO-8859-1">
+<%@ page import="com.lms.model.Payment" %>
+<%@ page import="com.lms.util.*" %>
+<%@ page import="com.lms.service.*" %>
+<%@ page import="com.lms.service.IPaymentService" %>
+<%@ page import="com.lms.service.PaymentServiceImpl" %>
+
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.*" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
--->
+
 <link href="CSS/payment/css/main.css" rel="stylesheet" type="text/css">
 <link href="CSS/payment/css/util.css" rel="stylesheet" type="text/css">
 <link href="CSS/payment/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -22,14 +29,6 @@
 <title>List Payments</title>
 </head>
 <body>
-
-<%@ page import="com.lms.model.Payment,com.lms.service.*,com.lms.util.*,java.util.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<%
-	List<Payment> payments = PaymentService.selectAllPayment();
-	request.setAttribute("payments",payments);
-%>
 
 <div class="limiter">
 <div class="container-table100">
@@ -51,22 +50,27 @@
     <th>Delete</th>
     </tr>
 </thead>
-    
-    <c:forEach items="${payments}" var="payment">
-    	<tbody>
+       	<tbody>
+       	<%
+			IPaymentService iPaymentService = new PaymentServiceImpl();
+			ArrayList<Payment> paymentList = iPaymentService.selectAllPayment();
+			for(Payment payment : paymentList) {
+		%>
 			<tr>
-				<td>${payment.paymentID}</td>
-				<td>${payment.orderID}</td>
-				<td>Rs. ${payment.payAmount}</td>
-				<td>${payment.paymentType}</td>
-				<td>${payment.description}</td>
-				<td>${payment.paymentDate}</td>
-				<td><a href= "ViewPaymentAdmin?paymentID=${payment.paymentID}" >View</a></td>
-				<td><a href= "editPaymentAdmin?paymentID=${payment.paymentID}" >Edit</a></td>
-				<td><a href= "deletePayment?paymentID=${payment.paymentID}" >Delete</a></td>
+				<td><%=payment.getPaymentID() %></td>
+				<td><%=payment.getOrderID() %></td>
+				<td>Rs. <%=payment.getPayAmount() %></td>
+				<td><%=payment.getPaymentType() %></td>
+				<td><%=payment.getDescription() %></td>
+				<td><%=payment.getPaymentDate() %></td>
+				<td><a href= "ViewPayment?paymentID=<%=payment.getPaymentID() %>" >View</a></td>
+				<td><a href= "editPaymentAdmin?paymentID=<%=payment.getPaymentID() %>" >Edit</a></td>
+				<td><a href= "deletePayment?paymentID=<%=payment.getPaymentID() %>" >Delete</a></td>
 			</tr>
-		</tbody>
-	</c:forEach>    
+		<%
+			}
+		%>
+		</tbody> 
 </table>
 </div>
 </div>

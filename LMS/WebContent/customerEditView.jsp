@@ -10,107 +10,104 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!-- Icons font CSS-->
+    <link href="CSS/regform/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="CSS/regform/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+	
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 
-<style type="text/css">
-  <%@include file="CSS/reg.css" %>
-</style>
+    <!-- Vendor CSS-->
+    <link href="CSS/regform/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="CSS/regform/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="CSS/regform/css/main.css" rel="stylesheet" media="all">
 
 <title>Customer update bios</title>
 </head>
 <body>
 
-	   
-	<h1>CUSTOMER EDIT DETIALS</h1>
-	
-	<div class="row">
-	<div class="col-sm-4">
-	<form action="EditCustomerBios" method="post" class="card">
-		
-		<c:forEach var="cus" items="${cusDetails}">
-		
-			<div align="left">	 
-				<input type="hidden" class="form-control" value="${cus.custId}" name="custId" id="fname" required="required">
-			</div>
-		
-			<div align="left">	 
-				<label class="form-lable">First Name</label>
-				<input type="text" class="form-control" value="${cus.firstName}" name="fname" id="fname" required="required">
-			</div>
-			<br>
-			<div align="left">
-				<label class="form-lable">Last Name</label>
-				<input type="text" class="form-control" value="${cus.lastName}" name="lname" id="lname">
-			</div>
-			<br>
-			<div align="left">
-				<label class="form-lable">Address</label>
-				<input type="text" class="form-control" value="${cus.address}" name="address" id="address">
-			</div>
-			<br>
-			<div align="left">
-				<label class="form-lable">Email</label>
-				<input type="text" class="form-control" value="${cus.email}" name="email" id="email" required="required">
-			</div>
-			<br>
-			<div align="left">
-				<label class="form-lable">Phone Number</label>
-				<input type="text" class="form-control" value="${cus.phone}" name="pnumber" id="pnumber">
-			</div>
-			<br>
-		<br>
-		<br>
-		<div align="right">
-			<input type="submit" id="submit" value="update" name="submit" class="btn btn-info">					
-			<input type="reset" id="reset" value="reset" name="reset" class="btn btn-warning">
-		</div>
-	</c:forEach>	
-	</form>
-	</div>
-	<div class="col-sm-8">
-		
-	</div>
-</div>
+		<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Customer Edit Detial Form</h2>
+                </div>
+                <div class="card-body">
+                    <form action="EditCustomerBios" method="post">
+						<c:forEach var="cus" items="${cusDetails}">
+                        <div class="form-row m-b-55">
+                            <div class="name">Name</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">    
+                                   	 <input type="hidden" value="${cus.custId}" name="custId">                           
+                                        <div class="input-group-desc">                                     
+                                            <input class="input--style-5" value="${cus.firstName}" type="text" name="fname">
+                                            <label class="label--desc">first name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" value="${cus.lastName}" type="text" name="lname">
+                                            <label class="label--desc">last name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						
+                        <div class="form-row">
+                            <div class="name">Address</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5"  value="${cus.address}"  type="text" name="address">
+                                </div>
+                            </div>
+                        </div>
+						
+						
+                        <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" value="${cus.email}" type="email" name="email">
+                                </div>
+                            </div>
+                        </div>
+						
+                        <div class="form-row">
+                            <div class="name">Phone</div>
+                            <div class="value">
+								<div class="input-group">
+                                    <input class="input--style-5" value="${cus.phone}" type="text" name="pnumber">
+                                </div>
+                            </div>
+                        </div>
+					</c:forEach>	
+                        <div class="form-row p-t-20">
+                            <label class="label label--block">I agree all statements in Terms of service</label>
+                        </div>										
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+							<button class="btn btn--radius-2 btn--red" type="reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	
-	
-	
-	
-	
-	
-	
-	<!--  
-	  <table border="1" cellpadding="5">
-            <caption><h2>List of Customers</h2></caption>
-            <tr>
-                <th>custId ID</th>
-                <th>firstName Name</th>
-                <th>lastName Name</th>
-                <th>email</th>
-                <th>phone</th>
-                <th>address</th>
-                <th>User name</th>
-                <th>Password</th>
-                <th>Update Details</th>
-                
-            </tr> 
-           <c:forEach var="cus" items="${cusDetails}">
-                <tr>
-                   	<td> <c:out value="${cus.custId}"/> </td>
-				   	<td> <c:out value="${cus.firstName}"/> </td>
-				  	<td> <c:out value="${cus.lastName}"/> </td>
-					<td> <c:out value="${cus.email}"/> </td>
-					<td> <c:out value="${cus.phone}"/> </td>
-					<td> <c:out value="${cus.address}"/>	</td>
-					<td> <c:out value="${cus.userName}"/> </td>	
-					<td> <c:out value="${cus.password}"/> </td>
-		
-                    
-                    <td> <a href="edit?id=<c:out value='${cus.custId}' />">Edit</a> </td>
-                      &nbsp;&nbsp;&nbsp;&nbsp; 
-                  
-                 
-            		</tr>
-			</c:forEach>
-        </table> -->
+    <!-- Jquery JS-->
+    <script src="CSS/regform/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="CSS/regform/vendor/select2/select2.min.js"></script>
+    <script src="CSS/regform/vendor/datepicker/moment.min.js"></script>
+    <script src="CSS/regform/vendor/datepicker/daterangepicker.js"></script>
+    <!-- Main JS-->
+    <script src="CSS/regform/js/global.js"></script>
+
+
 </body>
 </html>

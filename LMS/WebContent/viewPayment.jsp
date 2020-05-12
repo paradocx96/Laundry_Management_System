@@ -20,34 +20,36 @@
 	<br>
 	<br>	
 	<div>
-		<c:forEach var="payment" items="${paymentView}" >
+	<%
+		Payment payment = (Payment) request.getAttribute("payment");
+	%>
+		
 			<table border="1" align="center">
 					<tr>
 						<td><label class="">Payment ID</label></td>
-						<td>${payment.paymentID}</td>
+						<td><%=payment.getPaymentID() %></td>
 					</tr>
 					<tr>
 						<td><label class="">Order ID</label></td>
-						<td>${payment.orderID}</td>
+						<td><%=payment.getOrderID() %></td>
 					</tr>
 					<tr>
 						<td><label class="">Payment Date</label></td>
-						<td>${payment.paymentDate}</td>
+						<td><%=payment.getPaymentDate() %></td>
 					</tr>
 					<tr>	
 						<td><label class="">Net Amount</label></td>
-						<td>Rs. ${payment.payAmount}</td>
+						<td>Rs. <%=payment.getPayAmount() %></td>
 					</tr>
 					<tr>
 						<td><label class="">Payment Type</label></td>
-						<td>${payment.paymentType}</td>
+						<td><%=payment.getPaymentType() %></td>
 					</tr>
 					<tr>
 						<td><label class="">Description</label></td>
-						<td>${payment.description}</td>
+						<td><%=payment.getDescription() %></td>
 					</tr>
-			</table>				
-		</c:forEach>
+			</table>
 	</div>
 </body>
 </html>

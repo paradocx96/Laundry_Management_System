@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		
-		PrintWriter out = response.getWriter();
+
 		
 		
 		try {
@@ -49,11 +49,12 @@ public class LoginServlet extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("userName", userName);
 					response.sendRedirect("dashboard.jsp");
+				
 					
 				}else {
 					
 					
-					out.println("User name or passowrd Invalid");
+					response.sendRedirect("error.jsp");
 					
 				}
 		

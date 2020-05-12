@@ -1,59 +1,25 @@
 package com.lms.service;
 
-import java.util.*;
-import java.sql.*;
-import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import com.mysql.*;
 
 import com.lms.model.Payment;
 import com.lms.util.DBconnect;
 
-public class PaymentService {
+public class PaymentServiceImpl implements IPaymentService {
 	
 	private static final String CREATE_PAYMENT = "INSERT INTO payment (orderID,payType,totAmount,description) VALUES (?,?,?,?);";
-	private static final String GET_PAY_BY_ID = "SELECT paymentID,orderID,payType,totAmount,description,dateTime FROM payment WHERE paymentID = ?;";
 	private static final String GET_ALL_PAYMENT = "SELECT * FROM payment;";
 	private static final String GET_PAYMENT_BY_ID = "SELECT * FROM payment WHERE paymentID = ?;";
-	private static final String GET_PAYMENT_BY_ORDER_ID = "SELECT * FROM payment WHERE orderID = ?;";
-	private static final String DELETE_PAYMENT_SQL = "DELETE FROM payment WHERE paymentID = ?;";
-	private static final String UPDATE_PAYMENT_CUSTOMER = "UPDATE payment SET payType = ?, description = ? WHERE paymentID = ?;";
 	private static final String UPDATE_PAYMENT_ADMIN = "UPDATE payment SET orderID = ?, totAmount = ?, payType = ?, description = ?, dateTime = ? WHERE paymentID = ?;";
-	
-	private static Connection connection = null;
-	private static Statement statement = null;
-	
+	private static final String DELETE_PAYMENT_SQL = "DELETE FROM payment WHERE paymentID = ?;";
+	private static final String GET_PAYMENT_BY_ORDER_ID = "SELECT * FROM payment WHERE orderID = ?;";
 
-	public PaymentService() {
-		
-	}
-	
-	/*
-	public static boolean insertPayment (String oderid, double payamount) {
-		boolean isSuccess = false;
-		
-		try {
-			connection = DBconnect.getConnection();
-			statement = connection.createStatement();
-			String sql = "INSERT INTO payment (orderID,totAmount) values ('" + oderid + "','" + payamount + "')";
-			int rs = statement.executeUpdate(sql);
-			System.out.println(sql);
-			
-			if(rs > 0) {
-				isSuccess = true;
-			} else {
-				isSuccess = false;
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return isSuccess;
-	}*/
-	
-	
-	public static boolean addPayment (Payment payment) {
+	@Override
+	public boolean addPayment(Payment payment) {
 		boolean isSuccess = false;
 		
 		try (Connection connection = DBconnect.getConnection();
@@ -80,9 +46,19 @@ public class PaymentService {
 		return isSuccess;
 	}
 	
-	public static List<Payment> selectPayment(int payID) {
+	
+	
+	@Override
+	public Payment selectPaymentByID(int payid) {
 		
-		ArrayList<Payment> payment = new ArrayList<>();
+		return selectPayment(payid).get(0);
+	}
+
+	
+	
+	@Override
+	public ArrayList<Payment> selectPayment(int payID) {
+		ArrayList<Payment> selectpayment = new ArrayList<>();
 		
 		try (Connection connection = DBconnect.getConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(GET_PAYMENT_BY_ID);) {
@@ -91,33 +67,40 @@ public class PaymentService {
 			System.out.println(preparedStatement);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
-			while (resultSet.next()) {
-				String orderid = resultSet.getString("orderID");
-				String date = resultSet.getString("dateTime");
-				String type = resultSet.getString("payType");
-				String desc = resultSet.getString("description");
-				double amount = resultSet.getDouble("totAmount");
+			while(resultSet.next()) {
+				Payment payment = new Payment();
 				
-				Payment showPayment = new Payment(payID, orderid, date, type, desc, amount);
+				payment.setPaymentID(resultSet.getInt("paymentID"));
+				payment.setOrderID(resultSet.getString("orderID"));
+				payment.setPaymentDate(resultSet.getString("dateTime"));
+				payment.setPaymentType(resultSet.getString("payType"));
+				payment.setDescription(resultSet.getString("description"));
+				payment.setPayAmount(resultSet.getDouble("totAmount"));
 				
-				payment.add(showPayment);
+				selectpayment.add(payment);
 				
 			}
-			
-			
-		} catch (Exception e) {
+						
+		} catch (SQLException e) {
 			e.printStackTrace();
-			
-		}
+		}	
 		
-		return payment;
+		return selectpayment;
+	}
+
+	
+	
+	@Override
+	public Payment selectPaymentOrder(String orderID) {
 		
+		return PaymentByOrderId(orderID).get(0);
 	}
 	
 	
-	public static List<Payment> selectPaymentOrder(String orderID) {
-		
-		ArrayList<Payment> payment = new ArrayList<>();
+	
+	@Override
+	public ArrayList<Payment> PaymentByOrderId(String orderID) {
+		ArrayList<Payment> selectOrderPayment = new ArrayList<>();
 		
 		try (Connection connection = DBconnect.getConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(GET_PAYMENT_BY_ORDER_ID);) {
@@ -127,58 +110,64 @@ public class PaymentService {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			while (resultSet.next()) {
-				int paymentid = resultSet.getInt("paymentID");
-				String date = resultSet.getString("dateTime");
-				String type = resultSet.getString("payType");
-				String desc = resultSet.getString("description");
-				double amount = resultSet.getDouble("totAmount");
+				Payment payment = new Payment();
 				
-				Payment showPayment = new Payment(paymentid, orderID, date, type, desc, amount);
+				payment.setPaymentID(resultSet.getInt("paymentID"));
+				payment.setOrderID(resultSet.getString("orderID"));
+				payment.setPaymentDate(resultSet.getString("dateTime"));
+				payment.setPaymentType(resultSet.getString("payType"));
+				payment.setDescription(resultSet.getString("description"));
+				payment.setPayAmount(resultSet.getDouble("totAmount"));
 				
-				payment.add(showPayment);
-				
+				selectOrderPayment.add(payment);
 			}
-			
-			
+						
 		} catch (Exception e) {
 			e.printStackTrace();
-			
 		}
 		
-		return payment;
-		
+		return selectOrderPayment;
 	}
+
 	
-	public static List<Payment> selectAllPayment() {
+	
+	@Override
+	public ArrayList<Payment> selectAllPayment() {
 		
-		List<Payment> payments = new ArrayList<>();
+		ArrayList<Payment> paymentlist = new ArrayList<Payment>();
 		
 		try (Connection connection = DBconnect.getConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_PAYMENT);) {
+			
 			System.out.println(preparedStatement);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
-				int pid = resultSet.getInt("paymentID");
-				String orderid = resultSet.getString("orderID");
-				String date = resultSet.getString("dateTime");
-				String type = resultSet.getString("payType");
-				String desc = resultSet.getString("description");
-				double amount = resultSet.getDouble("totAmount");
+				Payment payment = new Payment();
 				
-				payments.add(new Payment(pid, orderid, date, type, desc, amount));
+				payment.setPaymentID(resultSet.getInt("paymentID"));
+				payment.setOrderID(resultSet.getString("orderID"));
+				payment.setPaymentDate(resultSet.getString("dateTime"));
+				payment.setPaymentType(resultSet.getString("payType"));
+				payment.setDescription(resultSet.getString("description"));
+				payment.setPayAmount(resultSet.getDouble("totAmount"));
+				
+				paymentlist.add(payment);
+				
 			}
-			
+						
 		} catch (SQLException e) {
-			printSQLException(e);
+			e.printStackTrace();
 		}	
 		
-		return payments;
+		return paymentlist;
+
 	}
+
 	
 	
-	public static boolean deletePayment (Payment payment) {
-		
+	@Override
+	public boolean deletePayment(Payment payment) {
 		boolean rowDelete = false;
 		
 		try (Connection connection = DBconnect.getConnection();
@@ -186,7 +175,9 @@ public class PaymentService {
 			
 			preparedStatement.setInt(1, payment.getPaymentID());
 			rowDelete = preparedStatement.executeUpdate() > 0;
+			
 			System.out.println(preparedStatement);
+			
 			preparedStatement.close();
 			connection.close();
 			
@@ -195,11 +186,12 @@ public class PaymentService {
 		}
 		
 		return rowDelete;
-
 	}
+
 	
 	
-	public static boolean updatePaymentAdmin (Payment payment) {
+	@Override
+	public boolean updatePaymentAdmin(Payment payment) {
 		boolean rowUpdate = false;
 		
 		try (Connection connection = DBconnect.getConnection();
@@ -225,24 +217,14 @@ public class PaymentService {
 		
 		return rowUpdate;
 	}
-	
-	
-	private static void printSQLException(SQLException ex) {
-		for (Throwable e : ex) {
-			if (e instanceof SQLException) {
-				e.printStackTrace(System.err);
-				System.err.println("SQLState: " + ((SQLException) e).getSQLState());
-				System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
-				System.err.println("Message: " + e.getMessage());
-				Throwable t = ex.getCause();
-				while (t != null) {
-					System.out.println("Cause: " + t);
-					t = t.getCause();
-				}
-			}
-		}
-	}
-	
+
+
+
 	
 
+	
+	
+	
+	
+	
 }

@@ -59,10 +59,10 @@
 				<em class="fa fa-navicon">&nbsp;</em> Employee <span data-toggle="collapse" href="#sub-item-2" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-2">
-					<li><a class="" href="#">
+					<li><a class="" href="employeeList.jsp">
 						<span class="fa fa-arrow-right">&nbsp;</span> Employee List
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="addEmployee.jsp">
 						<span class="fa fa-arrow-right">&nbsp;</span> Add Employee
 					</a></li>
 					<li><a class="" href="#">
@@ -119,7 +119,7 @@
 				</ul>
 			</li>
 			
-			<li><a href=""><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li><a href="adminlogin.jsp"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 </div><!--/.sidebar-->
 		
@@ -266,7 +266,7 @@
 			</div>
 		</div><!--/.row-->
 		
-		<!-- 
+	
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
@@ -305,6 +305,9 @@
 		<div class="row">	
 		
 			<div class="col-md-6">
+			<form action="ListPayment" method="POST">
+					<input type="submit" value="Payment List"/>
+				</form>
 			</div><!--/.col-->
 		
 			<div class="col-sm-12">

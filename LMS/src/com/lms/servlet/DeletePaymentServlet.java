@@ -1,8 +1,6 @@
 package com.lms.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Payment;
-import com.lms.service.PaymentService;
+import com.lms.service.IPaymentService;
+import com.lms.service.PaymentServiceImpl;
 
 
 @WebServlet("/DeletePaymentServlet")
@@ -23,29 +22,21 @@ public class DeletePaymentServlet extends HttpServlet {
         super();
     }
     
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.doGet(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
 		
-		try {
-			deletePayment(request,response);
-		} catch (ServletException | IOException | SQLException e) {
-			e.printStackTrace();
-		}
-			
+		int paymentID = Integer.parseInt(request.getParameter("paymentID"));
+		Payment payment = new Payment(paymentID);
+		IPaymentService iPaymentService = new PaymentServiceImpl();		
+		iPaymentService.deletePayment(payment);
+		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/paymentList.jsp");
+		requestDispatcher.forward(request, response);
+		
 	}
 	
-	private void deletePayment(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, IOException {
-		
-        int paymentID = Integer.parseInt(request.getParameter("paymentID"));
-        System.out.println(paymentID);
-        Payment payment = new Payment(paymentID);
-    	PaymentService.deletePayment(payment);
-        response.sendRedirect("paymentList.jsp");
- 
-    }
-
-
 }
