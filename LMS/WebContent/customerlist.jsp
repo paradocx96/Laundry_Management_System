@@ -27,10 +27,7 @@
 <%@ page import="com.lms.model.Customer,com.lms.service.*,com.lms.util.*,java.util.*" %>
 	
 	
-	<%
-	List<Customer> listCustomer = CustomerService.listallcustomer();
-	request.setAttribute("listCustomer",listCustomer);
-	%>
+
 	
 <div class="limiter">
 <div class="container-table100">
@@ -54,23 +51,36 @@
 				<th>Delete</th>
 			</tr>
 		</thead>
-		<c:forEach var="customer" items="${listCustomer}">
 			<tbody>
+			
+				<%
+					ICustomerService icustomer = new CustomerServiceImpl();
+					ArrayList<Customer> listCustomer = icustomer.listallcustomer();
+					
+					for(Customer customer : listCustomer) {
+					
+				%>
+			
+				
 				<tr>
-					<td><c:out value="${customer.custId}" /></td>
-					<td><c:out value="${customer.firstName}" /></td>
-					<td><c:out value="${customer.lastName}" /></td>
-					<td><c:out value="${customer.address}" /></td>
-					<td><c:out value="${customer.email}" /></td>
-					<td><c:out value="${customer.phone}" /></td>
-					<td><c:out value="${customer.userName}" /></td>
-					<td><c:out value="${customer.password}" /></td>
-					<th><a href= "ViewPaymentAdmin?custId=${customer.custId}" >View</a></td>
-					<td><a href= "editCustomer?custId=${customer.custId}" >Edit</a></td>
-					<td><a href= "DeleteCustomer?custId=${customer.custId}" >Delete</a></td>
+					<td><c:out value="<%=customer.getCustId() %>" /></td>
+					<td><c:out value="<%=customer.getFirstName() %>" /></td>
+					<td><c:out value="<%=customer.getLastName() %>" /></td>
+					<td><c:out value="<%=customer.getAddress() %>" /></td>
+					<td><c:out value="<%=customer.getEmail() %>" /></td>
+					<td><c:out value="<%=customer.getPhone() %>" /></td>
+					<td><c:out value="<%=customer.getUserName() %>" /></td>
+					<td><c:out value="<%=customer.getPassword() %>"/></td>
+					<td><a href= "ViewPaymentAdmin?custId=<%=customer.getCustId() %>" >View</a></td>
+					<td><a href= "editCustomer?custId=<%=customer.getCustId() %>" >Edit</a></td>
+					<td><a href= "DeleteCustomer?custId=<%=customer.getCustId() %>" >Delete</a></td>
 				</tr>
-			</tbody>					
-		</c:forEach>	
+			</tbody>
+								
+				<%
+					}
+				%>
+		
 	</table>
 	</div>
 </div>

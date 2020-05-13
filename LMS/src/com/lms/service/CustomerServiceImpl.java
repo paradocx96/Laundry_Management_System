@@ -8,7 +8,7 @@ import com.lms.model.Customer;
 import com.lms.model.Payment;
 import com.lms.util.DBconnect;
 
-public class CustomerService {
+public class CustomerServiceImpl implements ICustomerService {
 	
 	private static final String ADD_NEW_CUSTOMER = "INSERT INTO customer" + "(firstName,lastName,address,email,phone,userName,password) VALUES" + "(?,?,?,?,?,?,?);";
 	private static final String UPDATE_USERS_SQL = "UPDATE customer SET firstName = ?,lastName= ?, address = ?, email = ?, phone = ? where custId = ?;";
@@ -16,11 +16,12 @@ public class CustomerService {
 	private static final String DELETE_CUSTOMER_SQL = "DELETE FROM customer WHERE custId = ?;";
 	private static final String GET_CUSTOMER_BY_ID = "SELECT * FROM customer WHERE custId = ?";
 	
-	public CustomerService () {
+	public CustomerServiceImpl () {
 		
 	}
 	
-	public void addCustomer(Customer customer) throws SQLException{
+	@Override
+	public void addCustomer(Customer customer){
 		
 		try (Connection connection = DBconnect.getConnection();
 				PreparedStatement preparedStatement = connection.prepareStatement(ADD_NEW_CUSTOMER)) {
@@ -44,16 +45,17 @@ public class CustomerService {
 	}
 	
 	
-	
-	public static List<Customer> listallcustomer() throws SQLException {
+	@Override
+	public ArrayList<Customer>  listallcustomer() {
 		
-		List<Customer> listCustomer = new ArrayList<>();
+		ArrayList<Customer> listCustomer = new ArrayList<>();
 		
-		Connection connection = DBconnect.getConnection();
-		Statement statement = connection.createStatement();
-		ResultSet resultset = statement.executeQuery(LIST_OF_CUSTOMERS);
-		
-		System.out.println(resultset);
+	try {	
+			Connection connection = DBconnect.getConnection();
+			Statement statement = connection.createStatement();
+			ResultSet resultset = statement.executeQuery(LIST_OF_CUSTOMERS);
+			
+			System.out.println(resultset);
 		
 		while (resultset.next()) {
 			int custId = Integer.parseInt(resultset.getString("custId"));
@@ -67,17 +69,27 @@ public class CustomerService {
 			
 			Customer customer = new Customer(custId, firstName, lastName, email, phone, address, userName, password);
 			listCustomer.add(customer);
-									
+			
 			}
-		
-		resultset.close();
-		statement.close();
-		
+			
+		}catch(Exception e) {
+			
+				
+		}
+				
 		return listCustomer;
 	}
 	
 	
-	public static List<Customer> getCustomerDetials(String user, String pass) {
+	@Override
+	public Customer selectOneCustomerDetials(String user, String pass) {
+		
+		return getCustomerDetials(user,pass).get(0);
+		
+	}
+	
+	@Override
+	public ArrayList<Customer> getCustomerDetials(String user, String pass) {
 			
 		ArrayList<Customer> cus = new ArrayList<>();	
 		
@@ -121,10 +133,11 @@ public class CustomerService {
 		return cus;
 			
 		 }
-		    
-	public boolean updateCustomerDetails(Customer cus) throws SQLException {
+		   
+	@Override
+	public boolean updateCustomerDetails(Customer cus){
 			
-			boolean rowUpdate;
+			boolean rowUpdate = false;
 			
 			try (Connection connection = DBconnect.getConnection();
 					PreparedStatement statement = connection.prepareStatement(UPDATE_USERS_SQL))
@@ -142,13 +155,18 @@ public class CustomerService {
 				
 				rowUpdate = statement.executeUpdate() > 0;
 				
-			} 
+				statement.close();
+				connection.close();	
+				
+			} catch(Exception e) {
+				
+			}
 			
 			return rowUpdate;
 		}
 	
-	
-	public static boolean deleteCustomer (Customer customer) { //By IT19180526
+	@Override
+	public boolean deleteCustomer (Customer customer) { //By IT19180526
 		
 		boolean row = false;
 		
@@ -171,8 +189,14 @@ public class CustomerService {
 		
 	}
 	
+	@Override
+	public Customer selectCustomer(int custId) {
+		
+		return selectCustomerById(custId).get(0);
+	}
 	
-	public static List<Customer> selectCustomerById(int custId) { //By IT19180526
+	@Override
+	public ArrayList<Customer> selectCustomerById(int custId) { //By IT19180526
 		
 		ArrayList<Customer> customer = new ArrayList<>();
 		

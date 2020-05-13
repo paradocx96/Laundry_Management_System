@@ -33,6 +33,7 @@ public class ViewPaymentServlet extends HttpServlet {
 		
 		int payid = Integer.parseInt(request.getParameter("paymentID"));
 		IPaymentService iPaymentService = new PaymentServiceImpl();
+		
 		Payment payment = iPaymentService.selectPaymentByID(payid);		
 		request.setAttribute("payment", payment);
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/viewPayment.jsp");

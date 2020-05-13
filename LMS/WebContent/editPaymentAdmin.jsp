@@ -52,7 +52,8 @@
 				<td><input type="text" class="" value="<%=payment.getDescription() %>" name="description" id="description"></td>
 			</tr>
 		</table><br><br><br>
-		<input type="submit" id="submit" value="update" name="submit" class=""><button type="reset" value="reset" name="reset">RESET</button>
+		<button type="submit" value="update" name="submit">Update</button>
+		<button type="reset" value="reset" name="reset">RESET</button>
 				
 	</form>
 	</div>

@@ -54,6 +54,10 @@ public class Customer {
 		this.custId = custId;
 	}
 
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCustId() {
 		return custId;
 	}
@@ -78,14 +82,47 @@ public class Customer {
 		return address;
 	}
 
-	
 	public String getUserName() {
 		return userName;
 	}
 
-	
 	public String getPassword() {
 		return password;
 	}
+
+	public void setCustId(int custId) {
+		this.custId = custId;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPhone(int phone) {
+		this.phone = phone;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	
 }
+
+

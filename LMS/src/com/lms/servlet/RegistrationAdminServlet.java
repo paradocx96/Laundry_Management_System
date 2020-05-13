@@ -10,17 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Customer;
-import com.lms.service.CustomerService;
+import com.lms.service.CustomerServiceImpl;
 
 
 @WebServlet("/RegistrationAdminServlet")
 public class RegistrationAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	private CustomerService customerService;
+	private CustomerServiceImpl customerService;
 	
     public RegistrationAdminServlet() {
-        this.customerService = new CustomerService();
+        this.customerService = new CustomerServiceImpl();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

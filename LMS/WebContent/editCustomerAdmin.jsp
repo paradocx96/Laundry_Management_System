@@ -39,14 +39,18 @@
                     <h2 class="title">Update Customer Info</h2>
                 </div>
                 <div class="card-body">
-                    <form action="RegistrationAdmin" method="post">
-						<c:forEach var="customer" items="${editCustomer}" >
+                    <form action="EditCustomer" method="post">
+						
+				<%
+					Customer customer = (Customer) request.getAttribute("editCustomer");
+				%>
+						
 						
 						<div class="form-row">
                             <div class="name">Customer ID</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="cusid" value="${customer.custId}" readonly="readonly">
+                                    <input class="input--style-5" type="text" name="cusid" value="<%=customer.getCustId() %>" readonly="readonly">
                                 </div>
                             </div>
                         </div>
@@ -57,13 +61,13 @@
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="fname" value="${customer.firstName}">
+                                            <input class="input--style-5" type="text" name="fname" value="<%=customer.getFirstName() %>">
                                             <label class="label--desc">first name</label>
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="lname" value="${customer.lastName}">
+                                            <input class="input--style-5" type="text" name="lname" value="<%=customer.getLastName() %>">
                                             <label class="label--desc">last name</label>
                                         </div>
                                     </div>
@@ -75,7 +79,7 @@
                             <div class="name">Address</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="address" value="${customer.address}">
+                                    <input class="input--style-5" type="text" name="address" value="<%=customer.getAddress() %>">
                                 </div>
                             </div>
                         </div>
@@ -85,7 +89,7 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email" value="${customer.email}">
+                                    <input class="input--style-5" type="email" name="email" value="<%=customer.getEmail() %>">
                                 </div>
                             </div>
                         </div>
@@ -94,7 +98,7 @@
                             <div class="name">Phone</div>
                             <div class="value">
 								<div class="input-group">
-                                    <input class="input--style-5" type="text" name="pnumber" value="${customer.phone}">
+                                    <input class="input--style-5" type="text" name="pnumber" value="<%=customer.getPhone() %>">
                                 </div>
                             </div>
                         </div>
@@ -103,7 +107,7 @@
                             <div class="name">Username</div>
                             <div class="value">
 								<div class="input-group">
-                                    <input class="input--style-5" type="text" name="username" value="${customer.userName}">
+                                    <input class="input--style-5" type="text" name="username" value="<%=customer.getUserName() %>">
                                 </div>
                             </div>
                         </div>
@@ -112,7 +116,7 @@
                             <div class="name">Password</div>
                             <div class="value">
 								<div class="input-group">
-                                    <input class="input--style-5" type="password" name="password" value="${customer.password}">
+                                    <input class="input--style-5" type="password" name="password" value="<%=customer.getPassword() %>">
                                 </div>
                             </div>
                         </div>
@@ -126,7 +130,8 @@
                             <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
 							<button class="btn btn--radius-2 btn--red" type="reset">Reset</button>
                         </div>
-                        </c:forEach>
+                     
+                      
                     </form>
                 </div>
             </div>

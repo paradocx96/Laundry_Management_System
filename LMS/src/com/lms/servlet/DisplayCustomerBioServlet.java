@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Customer;
-import com.lms.service.CustomerService;
+import com.lms.service.CustomerServiceImpl;
+import com.lms.service.ICustomerService;
 
 
 /**
@@ -35,16 +36,13 @@ public class DisplayCustomerBioServlet extends HttpServlet {
 		String user = request.getParameter("userName");
 		String pass = request.getParameter("password");
 		
-		try {
-			
-			List<Customer> cusDetails = CustomerService.getCustomerDetials(user, pass);
-			request.setAttribute("cusDetails", cusDetails);
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
 		
-		RequestDispatcher dis = request.getRequestDispatcher("customerEditView.jsp");
+		ICustomerService icustomer = new CustomerServiceImpl();
+		Customer cusDetails = icustomer.selectOneCustomerDetials(user, pass);
+		
+		request.setAttribute("cusDetails", cusDetails);
+	
+		RequestDispatcher dis = getServletContext().getRequestDispatcher("/customerEditView.jsp");
 		dis.forward(request, response);
 		
 	}

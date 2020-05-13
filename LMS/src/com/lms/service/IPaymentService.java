@@ -12,9 +12,11 @@ public interface IPaymentService {
 	public ArrayList<Payment> selectAllPayment();
 	
 	public Payment selectPaymentByID(int payid);	
+	
 	public ArrayList<Payment> selectPayment(int payID);
 	
 	public Payment selectPaymentOrder(String orderID);	
+	
 	public ArrayList<Payment> PaymentByOrderId(String orderID);
 	
 	public boolean deletePayment (Payment payment);

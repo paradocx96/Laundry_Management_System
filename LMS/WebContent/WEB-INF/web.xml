@@ -240,13 +240,14 @@
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>EditCustomer</servlet-name>
+  	<servlet-name>EditCustomerServlet</servlet-name>
   	<servlet-class>com.lms.servlet.EditCustomerServlet</servlet-class>
   </servlet>  
   <servlet-mapping>
-  	<servlet-name>EditCustomer</servlet-name>
-  	<url-pattern>/editCustomer</url-pattern>
+  	<servlet-name>EditCustomerServlet</servlet-name>
+  	<url-pattern>/EditCustomer</url-pattern>
   </servlet-mapping>
+   
   
 </web-app>
 

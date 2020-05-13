@@ -37,6 +37,7 @@ public class ViewPaymentByOrderServlet extends HttpServlet {
 		IPaymentService iPaymentService = new PaymentServiceImpl();
 		Payment payment = iPaymentService.selectPaymentOrder(orderid);
 		request.setAttribute("payment", payment);
+		
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/viewPayment.jsp");
 		requestDispatcher.forward(request, response);
 		

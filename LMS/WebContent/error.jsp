@@ -27,7 +27,7 @@
 <br>
 <br>
 <br>
-		<p style="font-size: 20px;"><b><a href="index.jsp"> Try again</a></b></p>
+		<p style="font-size: 20px;"><b><a href="login.jsp"> Try again</a></b></p>
 	
 </center>
 

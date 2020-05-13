@@ -12,18 +12,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Customer;
-import com.lms.service.CustomerService;
+import com.lms.service.CustomerServiceImpl;
+import com.lms.service.ICustomerService;
 
 @WebServlet("/RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private CustomerService customerService;
-	
-    public RegistrationServlet() {
-        this.customerService = new CustomerService();
-    }
-    
+		
+  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doGet(request, response);
 		
@@ -50,8 +46,14 @@ public class RegistrationServlet extends HttpServlet {
 		
 		Customer newCustomer = new Customer(fname, lname, email, pnumber, address, username, password);
 		
-		customerService.addCustomer(newCustomer);
-		response.sendRedirect("index.jsp");
+		
+		ICustomerService iCustomer = new CustomerServiceImpl();
+		iCustomer.addCustomer(newCustomer);
+		
+		
+		RequestDispatcher dis = request.getRequestDispatcher("login.jsp");
+		dis.forward(request, response);
+		
 		
     	
     }
