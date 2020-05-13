@@ -109,7 +109,7 @@ public class OrderService {
 
 			while (resultSet.next()) {
 				int orderid = resultSet.getInt("orderId");
-				int custId = resultSet.getInt("customerId");
+				int custId = resultSet.getInt("custId");
 				double weight = resultSet.getDouble("weight");
 				String orderDate = resultSet.getString("orderDate");
 				String deliveryDate = resultSet.getString("deliveryDate");
