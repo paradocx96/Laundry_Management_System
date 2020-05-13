@@ -34,7 +34,29 @@
 <div class="wrap-table100">
 <div class="table100">
 <h1>Customer List</h1>
-<input type="button" align="right" onclick="window.location.href='admindashboard.jsp'" value="Dashboared">
+<div id="buttons">
+  		<a href="admindashboard.jsp" style="border-radius: 5px;  
+  							padding: 5px 10px; 
+  							font-size: 22px;  
+  							text-decoration: none;  
+  							margin: 20px;  
+  							color: #fff;  
+  							position: relative;  
+  							display: inline-block;
+  							background-color: #9b59b6;
+  							box-shadow: 0px 5px 0px 0px #82409D;" >DASHBOARD</a>
+  							
+  		<a href="addCustomerAdmin.jsp" style="border-radius: 5px;  
+  							padding: 5px 10px; 
+  							font-size: 22px;  
+  							text-decoration: none;  
+  							margin: 20px;  
+  							color: #fff;  
+  							position: relative;  
+  							display: inline-block;
+  							background-color: #9b59b6;
+  							box-shadow: 0px 5px 0px 0px #82409D;" >ADD NEW CUSTOMER</a>
+</div>
 	<table>
 		<thead>
 			<tr class="table100-head">
@@ -71,8 +93,8 @@
 					<td><c:out value="<%=customer.getPhone() %>" /></td>
 					<td><c:out value="<%=customer.getUserName() %>" /></td>
 					<td><c:out value="<%=customer.getPassword() %>"/></td>
-					<td><a href= "ViewPaymentAdmin?custId=<%=customer.getCustId() %>" >View</a></td>
-					<td><a href= "editCustomer?custId=<%=customer.getCustId() %>" >Edit</a></td>
+					<td><a href= "ViewCustomer?custId=<%=customer.getCustId() %>" >View</a></td>
+					<td><a href= "EditCustomerAdmin?custId=<%=customer.getCustId() %>" >Edit</a></td>
 					<td><a href= "DeleteCustomer?custId=<%=customer.getCustId() %>" >Delete</a></td>
 				</tr>
 			</tbody>

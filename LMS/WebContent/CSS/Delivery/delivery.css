@@ -1,0 +1,50 @@
+body{
+
+    background-color: rgba(236, 250, 253, 0.959)
+}
+#gif{
+    margin-left: 41.25%;
+    width: 27%;
+    margin-top: 3%;
+
+
+}
+#del{
+    margin-left: 9%;
+}
+
+#ggif{
+    margin-top: 0%;
+    margin-left: 39.5%;
+    width: 1500px;
+}
+
+.inputItem{
+    padding: 1%;
+}
+
+.inputLabel{
+
+    margin-right: 90%;
+
+}
+.inputValue{
+
+    margin-left: 15%;
+    margin-right: 70%;
+    margin-top: -1.5%;
+
+}
+
+button{
+    margin-left: 17.5%;
+    margin-top: 0.5%;
+    height: 40px;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: none;
+    border-radius: 30px;
+    width: 100px;
+    color: white;
+    background-color: steelblue;
+}

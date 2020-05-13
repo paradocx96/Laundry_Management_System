@@ -149,8 +149,21 @@
                     </form>
                 </div>
             </div>
+            <div id="buttons">
+  					<a href="admindashboard.jsp" style="border-radius: 5px;  
+  							padding: 5px 10px; 
+  							font-size: 22px;  
+  							text-decoration: none;  
+  							margin: 20px;  
+  							color: #fff;  
+  							position: relative;  
+  							display: inline-block;
+  							background-color: #9b59b6;
+  							box-shadow: 0px 5px 0px 0px #82409D;" >CANCEL</a>
+  		</div>
         </div>
     </div>
+    
 
     <!-- Jquery JS-->
     <script src="CSS/regform/vendor/jquery/jquery.min.js"></script>

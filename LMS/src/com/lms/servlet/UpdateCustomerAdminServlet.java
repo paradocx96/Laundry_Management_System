@@ -13,26 +13,27 @@ import com.lms.service.ICustomer;
 import com.lms.service.ICustomerImpl;
 
 
-@WebServlet("/RegistrationAdminServlet")
-public class RegistrationAdminServlet extends HttpServlet {
+@WebServlet("/UpdateCustomerAdminServlet")
+public class UpdateCustomerAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
-    public RegistrationAdminServlet() {
-    	
+    public UpdateCustomerAdminServlet() {
+        super();
     }
+
     
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
-			
 	}
 	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean out;
+		response.setContentType("text/html");
+		
 		Customer customer = new Customer();
 		
+		customer.setCustId(Integer.parseInt(request.getParameter("custid")));
 		customer.setFirstName(request.getParameter("fname"));
 		customer.setLastName(request.getParameter("lname"));
 		customer.setAddress(request.getParameter("address"));
@@ -42,15 +43,10 @@ public class RegistrationAdminServlet extends HttpServlet {
 		customer.setPassword(request.getParameter("password"));
 		
 		ICustomer iCustomer = new ICustomerImpl();
-		out = iCustomer.addCustomer(customer);
+		iCustomer.updateCustomerAdmin(customer);
+		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/customerlist.jsp");
+		requestDispatcher.forward(request, response);
 		
-		if (out == true) {
-			RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("customerlist.jsp");
-			requestDispatcher1.forward(request, response);
-		} else {
-			RequestDispatcher requestDispatcher2 = request.getRequestDispatcher("404errorAdmin.jsp");
-			requestDispatcher2.forward(request, response);
-		}
 	}
-
+	
 }

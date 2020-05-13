@@ -35,6 +35,7 @@
                 <h3 class="text-uppercase">Page Not Found !</h3>
                 <p class="text-muted m-t-30 m-b-30">YOU SEEM TO BE TRYING TO FIND HIS WAY HOME</p>
                 <a href="admindashboard.jsp" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">Back to DashBoard</a> </div>
+                <button onclick="goBack()">Go Back</button>
             <footer class="footer text-center">Copyright © 2020-@LMS.com - All rights reserved</footer>
         </div>
     </section>

@@ -247,7 +247,42 @@
   	<servlet-name>EditCustomerServlet</servlet-name>
   	<url-pattern>/EditCustomer</url-pattern>
   </servlet-mapping>
-   
+  
+  <servlet>
+  	<servlet-name>EditCustomerAdminServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.EditCustomerAdminServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>EditCustomerAdminServlet</servlet-name>
+  	<url-pattern>/EditCustomerAdmin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdateCustomerAdminServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.UpdateCustomerAdminServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>UpdateCustomerAdminServlet</servlet-name>
+  	<url-pattern>/UpdateCustomerAdmin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ViewCustomerServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.ViewCustomerServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>ViewCustomerServlet</servlet-name>
+  	<url-pattern>/ViewCustomer</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>RegistrationAdminServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.RegistrationAdminServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>RegistrationAdminServlet</servlet-name>
+  	<url-pattern>/RegistrationAdmin</url-pattern>
+  </servlet-mapping>
   
 </web-app>
 

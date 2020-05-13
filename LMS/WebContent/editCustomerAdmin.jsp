@@ -39,10 +39,10 @@
                     <h2 class="title">Update Customer Info</h2>
                 </div>
                 <div class="card-body">
-                    <form action="EditCustomer" method="post">
+                    <form action="UpdateCustomerAdmin" method="post">
 						
 				<%
-					Customer customer = (Customer) request.getAttribute("editCustomer");
+					Customer customer = (Customer) request.getAttribute("customer");
 				%>
 						
 						
@@ -50,7 +50,7 @@
                             <div class="name">Customer ID</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="cusid" value="<%=customer.getCustId() %>" readonly="readonly">
+                                    <input class="input--style-5" type="text" name="custid" value="<%=customer.getCustId() %>" readonly="readonly">
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
 						
 						
                         <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
+                            <button class="btn btn--radius-2 btn--red" type="submit">Update</button>
 							<button class="btn btn--radius-2 btn--red" type="reset">Reset</button>
                         </div>
                      
@@ -135,6 +135,18 @@
                     </form>
                 </div>
             </div>
+           <div id="buttons">
+  		<a href="customerlist.jsp" style="border-radius: 5px;  
+  							padding: 5px 10px; 
+  							font-size: 22px;  
+  							text-decoration: none;  
+  							margin: 20px;  
+  							color: #fff;  
+  							position: relative;  
+  							display: inline-block;
+  							background-color: #9b59b6;
+  							box-shadow: 0px 5px 0px 0px #82409D;" >CANCEL</a>
+		</div>
         </div>
     </div>
 

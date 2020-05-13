@@ -30,6 +30,16 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+		<div class="profile-sidebar">
+			<div class="profile-userpic">
+				<img src="https://widgetwhats.com/app/uploads/2019/11/free-profile-photo-whatsapp-4-300x300.png" class="img-responsive" alt="">
+			</div>
+			<div class="profile-usertitle">
+				<div class="profile-usertitle-name"><% String name = session.getAttribute("userName").toString(); out.print(name);%></div>
+				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+			</div>
+			<div class="clear"></div>
+		</div>
 		<div class="divider"></div>
 		<form role="search">
 			<div class="form-group">
@@ -165,7 +175,7 @@
 						<div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
 							<div class="large"><% try { Connection con = DBconnect.getConnection();
 														Statement st = con.createStatement();
-														String sql = "SELECT COUNT(*) FROM customer";
+														String sql = "SELECT COUNT(*) FROM employee";
 														ResultSet rs = st.executeQuery(sql);
 														String Countrow="";
 														while(rs.next()){
