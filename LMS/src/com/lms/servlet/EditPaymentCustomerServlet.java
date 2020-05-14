@@ -17,17 +17,15 @@ import com.lms.service.IPaymentService;
 import com.lms.service.PaymentServiceImpl;
 
 
-@WebServlet("/EditPaymentServlet")
-public class EditPaymentServlet extends HttpServlet {
+@WebServlet("/EditPaymentCustomerServlet")
+public class EditPaymentCustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
-	
-    public EditPaymentServlet() {
+       
+    public EditPaymentCustomerServlet() {
         super();
-        
     }
     
-    
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -40,9 +38,9 @@ public class EditPaymentServlet extends HttpServlet {
 		IPaymentService iPaymentService = new PaymentServiceImpl();
 		Payment payment = iPaymentService.selectPaymentByID(payid);		
 		request.setAttribute("payment", payment);
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/editPaymentAdmin.jsp");
+		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/editPaymentCustomer.jsp");
 		requestDispatcher.forward(request, response);
 		
-	}	
+	}
 
 }

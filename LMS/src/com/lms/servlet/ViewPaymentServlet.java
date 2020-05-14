@@ -1,5 +1,9 @@
 package com.lms.servlet;
 
+/*
+ * By IT19180526
+ */
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -32,8 +36,7 @@ public class ViewPaymentServlet extends HttpServlet {
 		response.setContentType("text/html");
 		
 		int payid = Integer.parseInt(request.getParameter("paymentID"));
-		IPaymentService iPaymentService = new PaymentServiceImpl();
-		
+		IPaymentService iPaymentService = new PaymentServiceImpl();		
 		Payment payment = iPaymentService.selectPaymentByID(payid);		
 		request.setAttribute("payment", payment);
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/viewPayment.jsp");

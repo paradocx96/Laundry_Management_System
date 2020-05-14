@@ -1,3 +1,4 @@
+<!-- By IT19180526 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,42 +27,10 @@
 <link href="CSS/payment/vendor/select2/select2.min.css" rel="stylesheet" type="text/css">
 <link href="CSS/payment/vendor/perfect-scrollbar/perfect-scrollbar.css" type="text/css">
 
-<title>List Payments</title>
-
-<style>
-#customers {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width:200px;
-}
-
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
+<title>Payment Management</title>
 
 </head>
 <body>
-
-<table id="customers">
-<tr>
-<th><a href="admindashboard.jsp">Dashboard</a></th>
-<th><a href="addPayment.jsp">Add Payment</a></th>
-</tr>
-</table>
 
 <div class="limiter">
 <div class="container-table100">
@@ -69,6 +38,29 @@
 <div class="table100">
 
 <h1>Payment History</h1>
+
+<div id="buttons">
+	<a href="admindashboard.jsp" style="border-radius: 5px;  
+  							padding: 5px 10px; 
+  							font-size: 22px;  
+  							text-decoration: none;  
+  							margin: 20px;  
+  							color: #fff;  
+  							position: relative;  
+  							display: inline-block;
+  							background-color: #9b59b6;
+  							box-shadow: 0px 5px 0px 0px #82409D;" >DASHBOARD</a>
+  	<a href="addPayment.jsp" style="border-radius: 5px;  
+  							padding: 5px 10px; 
+  							font-size: 22px;  
+  							text-decoration: none;  
+  							margin: 20px;  
+  							color: #fff;  
+  							position: relative;  
+  							display: inline-block;
+  							background-color: #9b59b6;
+  							box-shadow: 0px 5px 0px 0px #82409D;" >ADD NEW PAYMENT</a>
+</div>
 <table>
 <thead>
 	<tr class="table100-head">

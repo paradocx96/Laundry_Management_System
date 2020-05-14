@@ -1,5 +1,9 @@
 package com.lms.model;
 
+/*
+ *  By IT19180526
+ */
+
 public class Payment {
 	
 	private int paymentID;

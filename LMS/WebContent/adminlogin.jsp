@@ -1,3 +1,4 @@
+<!-- By IT19180526 -->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -55,10 +56,11 @@
 					<div class="foot-lnk">
 						<a href="addEmployee.jsp">Sign up?</a>
 					</div>
-					
-					
-					
-				
+					<br>	
+					<br>
+					<center>
+						<a href="login.jsp"> <p style="color:#808080;">Customer Login</p></a>
+					</center>
 				</div>
 			</div>
 		</div>

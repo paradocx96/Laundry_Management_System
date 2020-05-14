@@ -32,10 +32,9 @@
         <div class="error-box">
             <div class="error-body text-center">
                 <h1 class="text-danger">404</h1>
-                <h3 class="text-uppercase">Page Not Found !</h3>
-                <p class="text-muted m-t-30 m-b-30">~ Try Again Later ~</p>
-                <a href="adminlogin.jsp" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">~ Log in Here ~</a>
-            </div>
+                <h3 class="text-uppercase">Wrong Username & Password</h3>
+                <p class="text-muted m-t-30 m-b-30">~ Try Again or Contact Administration ~</p>
+                <a href="adminlogin.jsp" class="btn btn-danger btn-rounded waves-effect waves-light m-b-40">~ Log in Here ~</a> </div>
             <footer class="footer text-center">Copyright © 2020-@LMS.com - All rights reserved</footer>
         </div>
     </section>

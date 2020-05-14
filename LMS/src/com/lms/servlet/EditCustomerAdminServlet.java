@@ -1,5 +1,9 @@
 package com.lms.servlet;
 
+/*
+ *  By IT19180526
+ */
+
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.lms.model.Customer;
-import com.lms.service.CustomerServiceImpl;
-import com.lms.service.ICustomerService;
+import com.lms.service.ICustomer;
+import com.lms.service.ICustomerImpl;
 
 
 @WebServlet("/EditCustomerAdminServlet")
@@ -31,8 +35,8 @@ public class EditCustomerAdminServlet extends HttpServlet {
 		response.setContentType("text/html");
 		
 		int custid = Integer.parseInt(request.getParameter("custId"));
-		ICustomerService iCustomerService = new CustomerServiceImpl();
-		Customer customer = iCustomerService.selectCustomer(custid);	
+		ICustomer iCustomer = new ICustomerImpl();
+		Customer customer = iCustomer.selectCustomerByID(custid);	
 		request.setAttribute("customer", customer);
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/editCustomerAdmin.jsp");
 		requestDispatcher.forward(request, response);

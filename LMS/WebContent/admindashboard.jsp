@@ -1,3 +1,4 @@
+<!-- By IT19180526 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>Laundry Management</span>System</a>
+				<a class="navbar-brand" href="admindashboard.jsp"><span>Laundry Management</span>System</a>
 			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
@@ -101,10 +102,10 @@
 				<em class="fa fa-navicon">&nbsp;</em> Delivery <span data-toggle="collapse" href="#sub-item-4" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-4">
-					<li><a class="" href="#">
+					<li><a class="" href="delivery-index.jsp">
 						<span class="fa fa-arrow-right">&nbsp;</span> Delivery List
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="delivery-form.jsp">
 						<span class="fa fa-arrow-right">&nbsp;</span> Add Delivery
 					</a></li>
 					<li><a class="" href="#">
@@ -129,7 +130,7 @@
 				</ul>
 			</li>
 			
-			<li><a href="adminlogin.jsp"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li><a href="adminLogout.jsp"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 </div><!--/.sidebar-->
 		
@@ -172,7 +173,7 @@
 				
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-orange panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-users color-teal"></em>
+						<div class="row no-padding"><em class="fa fa-xl fa-user color-orange"></em>
 							<div class="large"><% try { Connection con = DBconnect.getConnection();
 														Statement st = con.createStatement();
 														String sql = "SELECT COUNT(*) FROM employee";
@@ -207,7 +208,7 @@
 				
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-teal panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
+						<div class="row no-padding"><em class="fa fa-xl fa-balance-scale color-red"></em>
 							<div class="large"><% try { Connection con = DBconnect.getConnection();
 														Statement st = con.createStatement();
 														String sql = "SELECT SUM(weight) FROM orders";
@@ -225,8 +226,17 @@
 				
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-red panel-widget ">
-						<div class="row no-padding"><em class="fa fa-xl fa-search color-red"></em>
-							<div class="large">#NULL</div>
+						<div class="row no-padding"><em class="fa fa-xl fa-truck color-blue"></em>
+							<div class="large"><% try { Connection con = DBconnect.getConnection();
+														Statement st = con.createStatement();
+														String sql = "SELECT COUNT(*) FROM delivery";
+														ResultSet rs = st.executeQuery(sql);
+														String Countrow="";
+														while(rs.next()){
+															Countrow = rs.getString(1);
+															out.println(Countrow);
+															}} catch (Exception e){ e.printStackTrace();} %>
+							</div>
 							<div class="text-muted">Total Delivery</div>
 						</div>
 					</div>
@@ -234,7 +244,7 @@
 				
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-blue panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-bar-chart color-orange"></em>
+						<div class="row no-padding"><em class="fa fa-xl fa-money color-teal"></em>
 							<div class="large"><% try { Connection con = DBconnect.getConnection();
 														Statement st = con.createStatement();
 														String sql = "SELECT COUNT(*) FROM payment";
@@ -252,7 +262,7 @@
 				
 				<div class="col-xs-6 col-md-3 col-lg-3 no-padding">
 					<div class="panel panel-blue panel-widget border-right">
-						<div class="row no-padding"><em class="fa fa-xl fa-bar-chart color-orange"></em>
+						<div class="row no-padding"><em class="fa fa-xl fa-dollar color-orange"></em>
 							<div class="large">Rs. <% try { Connection con = DBconnect.getConnection();
 														Statement st = con.createStatement();
 														String sql = "SELECT SUM(totAmount) FROM payment";
@@ -289,7 +299,7 @@
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
-						<h4>Comments</h4>
+						<h4>New Customers</h4>
 						<div class="easypiechart" id="easypiechart-orange" data-percent="65" ><span class="percent">65%</span></div>
 					</div>
 				</div>
@@ -297,7 +307,7 @@
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
-						<h4>New Users</h4>
+						<h4>Feedback</h4>
 						<div class="easypiechart" id="easypiechart-teal" data-percent="56" ><span class="percent">56%</span></div>
 					</div>
 				</div>
@@ -306,7 +316,7 @@
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">
 						<h4>Visitors</h4>
-						<div class="easypiechart" id="easypiechart-red" data-percent="27" ><span class="percent">27%</span></div>
+						<div class="easypiechart" id="easypiechart-red" data-percent="75" ><span class="percent">75%</span></div>
 					</div>
 				</div>
 			</div>
@@ -315,63 +325,29 @@
 		<div class="row">	
 		
 			<div class="col-md-6">
-			<form action="ListPayment" method="POST">
-					<input type="submit" value="Payment List"/>
-				</form>
-			</div><!--/.col-->
+				<form action="ListPayment" method="POST">
+					<div id="buttons">
+            				<input type="submit" value="Payment Summary" style="border-radius: 5px;  
+  							padding: 5px 10px; 
+  							font-size: 22px;  
+  							text-decoration: none;  
+  							margin: 20px;  
+  							color: #fff;  
+  							position: relative;  
+  							display: inline-block;
+  							background-color: #9b59b6;
+  							box-shadow: 0px 5px 0px 0px #82409D;" />
+					</div>
+				</form>		
+			</div>
 		
 			<div class="col-sm-12">
+					
 			</div>
 		
 		</div><!--/.row-->
 </div>	<!--/.main-->
 
-
-<!-- 
-	<h1>DASHBOARD</h1>
-	<br><br><br>
-	<table border="2" cellpadding="25">
-		<tr>
-			<th><a href="customerlist.jsp">Customers</a></th>
-			<th><a href="registration.jsp">Add Customer</a></th>
-		</tr>
-	</table>
-	<br>
-	<br>
-		<hr>
-	<br>
-	<br>
-	<table border="2" cellpadding="25">
-		<tr>
-			<th><a href="">Employees</a></th>
-			<th><a href="">Add Employee</a></th>
-		</tr>
-	</table>
-	<br>
-	<br>
-		<hr>
-	<br>
-	<br>	
-	<table border="2" cellpadding="25">
-		<tr>
-			<th><a href="paymentList.jsp">Payments</a></th>
-			<th><a href="addPayment.jsp">Add Payment</a></th>
-		</tr>
-	</table>
-	<br>
-	<br>
-		<hr>
-	<br>
-	<br>
-	<table border="2" cellpadding="25">
-		<tr>
-			<th><a href="orderlist.jsp">Orders</a></th>
-			<th><a href="order.jsp">Add Order</a></th>
-		</tr>
-	</table>
-	<br>
-	<br>
-	 -->
 	
 <script src="CSS/AdminDashboard/js/jquery-1.11.1.min.js"></script>
 	<script src="CSS/AdminDashboard/js/bootstrap.min.js"></script>

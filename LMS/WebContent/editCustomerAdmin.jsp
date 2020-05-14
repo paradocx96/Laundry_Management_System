@@ -1,3 +1,5 @@
+<!-- By IT19180526 -->
+
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +29,7 @@
     <!-- Main CSS-->
     <link href="CSS/regform/css/main.css" rel="stylesheet" media="all">
 
-<title>Register</title>
+<title>Customer Management</title>
 
 </head>
 
@@ -119,24 +121,12 @@
                                     <input class="input--style-5" type="password" name="password" value="<%=customer.getPassword() %>">
                                 </div>
                             </div>
-                        </div>
-						
-						<div class="form-row p-t-20">
-                            <label class="label label--block">I agree all statements in Terms of service</label>
-                        </div>
-						
-						
+                        </div>						
                         <div>
                             <button class="btn btn--radius-2 btn--red" type="submit">Update</button>
 							<button class="btn btn--radius-2 btn--red" type="reset">Reset</button>
-                        </div>
-                     
-                      
-                    </form>
-                </div>
-            </div>
-           <div id="buttons">
-  		<a href="customerlist.jsp" style="border-radius: 5px;  
+							<div id="buttons">
+  							<a href="customerlist.jsp" style="border-radius: 5px;  
   							padding: 5px 10px; 
   							font-size: 22px;  
   							text-decoration: none;  
@@ -146,7 +136,11 @@
   							display: inline-block;
   							background-color: #9b59b6;
   							box-shadow: 0px 5px 0px 0px #82409D;" >CANCEL</a>
-		</div>
+							</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 

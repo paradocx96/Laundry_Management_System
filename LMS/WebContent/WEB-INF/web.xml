@@ -238,16 +238,7 @@
   	<servlet-name>DeleteCustomerServlet</servlet-name>
   	<url-pattern>/DeleteCustomer</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>EditCustomerServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.EditCustomerServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>EditCustomerServlet</servlet-name>
-  	<url-pattern>/EditCustomer</url-pattern>
-  </servlet-mapping>
-  
+    
   <servlet>
   	<servlet-name>EditCustomerAdminServlet</servlet-name>
   	<servlet-class>com.lms.servlet.EditCustomerAdminServlet</servlet-class>
@@ -284,5 +275,22 @@
   	<url-pattern>/RegistrationAdmin</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>EditPaymentCustomerServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.EditPaymentCustomerServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>EditPaymentCustomerServlet</servlet-name>
+  	<url-pattern>/EditPaymentCustomer</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdatePaymentCustomerServlet</servlet-name>
+  	<servlet-class>com.lms.servlet.UpdatePaymentCustomerServlet</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>UpdatePaymentCustomerServlet</servlet-name>
+  	<url-pattern>/UpdatePaymentCustomer</url-pattern>
+  </servlet-mapping>
 </web-app>
 

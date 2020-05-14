@@ -7,10 +7,7 @@
     pageEncoding="ISO-8859-1"%>
 
 <meta charset="ISO-8859-1">
-<!-- 
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
- -->
+
 <link href="CSS/payment/css/main.css" rel="stylesheet" type="text/css">
 <link href="CSS/payment/css/util.css" rel="stylesheet" type="text/css">
 <link href="CSS/payment/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -109,5 +106,4 @@
 </div>
 </div>
 </body>
-
 </html>

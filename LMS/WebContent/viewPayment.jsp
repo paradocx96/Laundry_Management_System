@@ -1,5 +1,5 @@
+<!-- By IT19180526 -->
 <!DOCTYPE html>
-
 <html>
 <head>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -7,24 +7,64 @@
     
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<%@ page import="com.lms.model.Payment,com.lms.service.*,com.lms.util.*,java.util.*" %>
+<%@ page import="com.lms.model.Payment,
+com.lms.service.*,
+com.lms.util.*,
+java.util.*"
+%>
     
 <meta charset="ISO-8859-1">
 
-<link href="CSS/payment/css/viewpay.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/css/main.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/css/util.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/animate/animate.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/select2/select2.min.css" rel="stylesheet" type="text/css">
+<link href="CSS/payment/vendor/perfect-scrollbar/perfect-scrollbar.css" type="text/css">
 
-<title>View Payment</title>
+<title>Payment Details</title>
+
 </head>
+
 <body>
-	<h1 align="center">Payment Summary</h1>
-	<br>
-	<br>	
-	<div>
+
+<div class="limiter">
+<div class="container-table100">
+<div class="wrap-table100">
+<div class="table100">
+	<h1 align="center">Payment Details</h1>
+	
+	<div id="buttons">
+	<a href="admindashboard.jsp" style="border-radius: 5px;  
+  							padding: 5px 10px; 
+  							font-size: 22px;  
+  							text-decoration: none;  
+  							margin: 20px;  
+  							color: #fff;  
+  							position: relative;  
+  							display: inline-block;
+  							background-color: #9b59b6;
+  							box-shadow: 0px 5px 0px 0px #82409D;" >DASHBOARD</a>
+  	<a href="paymentList.jsp" style="border-radius: 5px;  
+  							padding: 5px 10px; 
+  							font-size: 22px;  
+  							text-decoration: none;  
+  							margin: 20px;  
+  							color: #fff;  
+  							position: relative;  
+  							display: inline-block;
+  							background-color: #9b59b6;
+  							box-shadow: 0px 5px 0px 0px #82409D;" >PAYMENT LIST</a>
+	</div>
+	
 	<%
 		Payment payment = (Payment) request.getAttribute("payment");
 	%>
 		
-			<table border="1" align="center">
+			<table>
+				<thead></thead>
+				<tbody>
 					<tr>
 						<td><label class="">Payment ID</label></td>
 						<td><%=payment.getPaymentID() %></td>
@@ -49,7 +89,12 @@
 						<td><label class="">Description</label></td>
 						<td><%=payment.getDescription() %></td>
 					</tr>
+				</tbody>
 			</table>
-	</div>
+
+</div>
+</div>
+</div>
+</div>	
 </body>
 </html>

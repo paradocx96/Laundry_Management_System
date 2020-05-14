@@ -1,3 +1,4 @@
+<!-- By IT19180526 -->
 <!DOCTYPE html>
 <html>
 
@@ -46,7 +47,7 @@
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="fname">
+                                            <input class="input--style-5" type="text" name="fname" required="required">
                                             <label class="label--desc">first name</label>
                                         </div>
                                     </div>
@@ -64,7 +65,7 @@
                             <div class="name">Address</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="text" name="address">
+                                    <input class="input--style-5" type="text" name="address" required="required">
                                 </div>
                             </div>
                         </div>
@@ -83,7 +84,7 @@
                             <div class="name">Phone</div>
                             <div class="value">
 								<div class="input-group">
-                                    <input class="input--style-5" type="text" name="pnumber">
+                                    <input class="input--style-5" type="text" name="pnumber" required="required">
                                 </div>
                             </div>
                         </div>
@@ -92,7 +93,7 @@
                             <div class="name">Username</div>
                             <div class="value">
 								<div class="input-group">
-                                    <input class="input--style-5" type="text" name="username">
+                                    <input class="input--style-5" type="text" name="username" required="required">
                                 </div>
                             </div>
                         </div>
@@ -101,56 +102,24 @@
                             <div class="name">Password</div>
                             <div class="value">
 								<div class="input-group">
-                                    <input class="input--style-5" type="password" name="password">
+                                    <input class="input--style-5" type="password" name="password" required="required">
                                 </div>
                             </div>
                         </div>
-						
-						<!--
-                        <div class="form-row">
-                            <div class="name">Subject</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="subject">
-                                            <option disabled="disabled" selected="selected">Choose option</option>
-                                            <option>Subject 1</option>
-                                            <option>Subject 2</option>
-                                            <option>Subject 3</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-						-->
-						
+												
                         <div class="form-row p-t-20">
-                            <label class="label label--block">I agree all statements in Terms of service</label>
-							<!--
-                            <div class="p-t-15">
-                                <label class="radio-container m-r-55">Yes
-                                    <input type="radio" checked="checked" name="exist">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <label class="radio-container">No
-                                    <input type="radio" name="exist">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-							-->
-                        </div>
-						
-						
+                            <label class="radio-container label">I agree all statements in Terms of service
+							<input type="checkbox" required="required">
+                            <span class="checkmark"></span>
+                            </label>
+                       </div>
+                       
                         <div>
                             <button class="btn btn--radius-2 btn--red" type="submit">Register</button>
 							<button class="btn btn--radius-2 btn--red" type="reset">Reset</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div id="buttons">
-  					<a href="admindashboard.jsp" style="border-radius: 5px;  
+							
+							<div id="buttons">
+  							<a href="admindashboard.jsp" style="border-radius: 5px;  
   							padding: 5px 10px; 
   							font-size: 22px;  
   							text-decoration: none;  
@@ -160,7 +129,11 @@
   							display: inline-block;
   							background-color: #9b59b6;
   							box-shadow: 0px 5px 0px 0px #82409D;" >CANCEL</a>
-  		</div>
+  							</div>
+                        </div>
+                    </form>
+                </div>
+            </div>            
         </div>
     </div>
     

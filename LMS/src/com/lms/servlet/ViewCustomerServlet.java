@@ -1,5 +1,9 @@
 package com.lms.servlet;
 
+/*
+ * By IT19180526
+ */
+
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,10 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.lms.model.Customer;
 import com.lms.service.ICustomer;
 import com.lms.service.ICustomerImpl;
-
-/*
- * IT19180526
- */
 
 @WebServlet("/ViewCustomerServlet")
 public class ViewCustomerServlet extends HttpServlet {
