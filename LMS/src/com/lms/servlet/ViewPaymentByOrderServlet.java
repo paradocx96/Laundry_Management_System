@@ -38,8 +38,11 @@ public class ViewPaymentByOrderServlet extends HttpServlet {
     	response.setContentType("text/html");
 		
     	String orderid = request.getParameter("orderId");
+    	
 		IPaymentService iPaymentService = new PaymentServiceImpl();
+		
 		Payment payment = iPaymentService.selectPaymentOrder(orderid);
+		
 		request.setAttribute("payment", payment);
 		
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/viewPayment.jsp");

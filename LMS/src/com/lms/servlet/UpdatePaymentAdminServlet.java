@@ -34,8 +34,10 @@ public class UpdatePaymentAdminServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		
+		//Create an object
 		Payment payment = new Payment();
 		
+		//getting values from JSP and assign to object setters
 		payment.setPaymentID(Integer.parseInt(request.getParameter("paymentid")));
 		payment.setOrderID(request.getParameter("orderid"));
 		payment.setPaymentDate(request.getParameter("paydatetime"));
@@ -43,9 +45,13 @@ public class UpdatePaymentAdminServlet extends HttpServlet {
 		payment.setPayAmount(Double.parseDouble(request.getParameter("payamount")));
 		payment.setDescription(request.getParameter("description"));
 		
+		//create an object
 		IPaymentService iPaymentService = new PaymentServiceImpl();
+		
+		//calling relevant method
 		iPaymentService.updatePaymentAdmin(payment);
 		
+		//redirect to JSP
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/paymentList.jsp");
 		requestDispatcher.forward(request, response);
 		

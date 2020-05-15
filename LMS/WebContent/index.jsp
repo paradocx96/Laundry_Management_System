@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Home</title>
+        <title>Laundry Service</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="CSS/Home/assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->

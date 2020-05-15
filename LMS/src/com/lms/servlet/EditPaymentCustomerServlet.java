@@ -35,9 +35,13 @@ public class EditPaymentCustomerServlet extends HttpServlet {
 		response.setContentType("text/html");
 		
 		int payid = Integer.parseInt(request.getParameter("paymentID"));
+		
 		IPaymentService iPaymentService = new PaymentServiceImpl();
-		Payment payment = iPaymentService.selectPaymentByID(payid);		
+		
+		Payment payment = iPaymentService.selectPaymentByID(payid);	
+		
 		request.setAttribute("payment", payment);
+		
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/editPaymentCustomer.jsp");
 		requestDispatcher.forward(request, response);
 		

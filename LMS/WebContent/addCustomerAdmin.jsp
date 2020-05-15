@@ -75,7 +75,7 @@
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
+                                    <input class="input--style-5" type="email" name="email" required="required">
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
 							<button class="btn btn--radius-2 btn--red" type="reset">Reset</button>
 							
 							<div id="buttons">
-  							<a href="admindashboard.jsp" style="border-radius: 5px;  
+  							<a href="customerlist.jsp" style="border-radius: 5px;  
   							padding: 5px 10px; 
   							font-size: 22px;  
   							text-decoration: none;  

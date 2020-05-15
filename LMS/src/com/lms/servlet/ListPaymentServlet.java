@@ -27,7 +27,9 @@ public class ListPaymentServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	response.setContentType("text/html");
+    	
     	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/paymentList.jsp");
+    	
     	dispatcher.forward(request, response);
     	
 	}

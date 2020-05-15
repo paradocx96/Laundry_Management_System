@@ -28,16 +28,22 @@ public class AddPaymentServlet extends HttpServlet {
 		
 		boolean istrue;
 		
+		//Crate an object
 		Payment payment = new Payment();
 		
+		//getting values from JSP and assign to object setters
 		payment.setOrderID(request.getParameter("orderid"));
 		payment.setPaymentType(request.getParameter("paytype"));
 		payment.setPayAmount(Double.parseDouble(request.getParameter("payamount")));
 		payment.setDescription(request.getParameter("description"));
 		
+		//create an object
 		IPaymentService iPaymentService = new PaymentServiceImpl();
+		
+		//calling relevant method
 		istrue = iPaymentService.addPayment(payment);
 		
+		//check the results and redirect
 		if (istrue == true) {
 			RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("paymentList.jsp");
 			requestDispatcher1.forward(request, response);

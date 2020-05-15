@@ -35,8 +35,10 @@ public class UpdateCustomerAdminServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		
+		//Create an object
 		Customer customer = new Customer();
 		
+		//getting values from JSP and assign to object setters
 		customer.setCustId(Integer.parseInt(request.getParameter("custid")));
 		customer.setFirstName(request.getParameter("fname"));
 		customer.setLastName(request.getParameter("lname"));
@@ -46,8 +48,13 @@ public class UpdateCustomerAdminServlet extends HttpServlet {
 		customer.setUserName(request.getParameter("username"));
 		customer.setPassword(request.getParameter("password"));
 		
+		//create an object
 		ICustomer iCustomer = new ICustomerImpl();
+		
+		//calling relevant method
 		iCustomer.updateCustomerAdmin(customer);
+		
+		//redirect to JSP
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/customerlist.jsp");
 		requestDispatcher.forward(request, response);
 		

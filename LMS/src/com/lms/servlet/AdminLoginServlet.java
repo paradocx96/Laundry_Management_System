@@ -25,26 +25,35 @@ public class AdminLoginServlet extends HttpServlet {
 	
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
+			//create variable and assign values from JSP
 			String userName = request.getParameter("userName");
 			String password = request.getParameter("password");
 		
 			try {
-				
+				//Getting DB connection
 				Connection con = DBconnect.getConnection();
-				Statement state = con.createStatement();  
+				
+				Statement state = con.createStatement();
+				
+				//prepare SQL syntax
 				String sql = "SELECT userName,password FROM employee WHERE userName='"+userName+"'and password='"+password+"'";
+				
+				//execute SQL syntax
 				ResultSet result = state.executeQuery(sql);
 	
-					if(result.next()) {
-						
-						HttpSession session = request.getSession();
-						session.setAttribute("userName", userName);
-						response.sendRedirect("admindashboard.jsp");
-						
-					} else {
-
-						response.sendRedirect("404LoginAdmin.jsp");
-					}
+				//Check the result and redirect	
+				if(result.next()) {
+					
+					//Calling session
+					HttpSession session = request.getSession();
+					session.setAttribute("userName", userName);
+					
+					response.sendRedirect("admindashboard.jsp");
+				
+				} else {
+					
+					response.sendRedirect("404LoginAdmin.jsp");
+				}
 			
 			} catch (SQLException e) {
 				

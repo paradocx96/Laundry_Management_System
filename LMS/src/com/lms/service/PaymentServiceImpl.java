@@ -1,7 +1,5 @@
 package com.lms.service;
 
-import java.lang.ProcessBuilder.Redirect;
-
 /*
  *  By IT19180526
  */
@@ -11,8 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import javax.websocket.SendResult;
 
 import com.lms.model.Payment;
 import com.lms.util.DBconnect;
@@ -27,13 +23,16 @@ public class PaymentServiceImpl implements IPaymentService {
 	public boolean addPayment(Payment payment) {
 		boolean result = false;
 		
-		try (Connection connection = DBconnect.getConnection();
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
 				PreparedStatement preparedStatement = connection.prepareStatement(PaymentQuery.CREATE_PAYMENT)) {
 			
+			//Prepare the SQL syntax
 			preparedStatement.setString(PaymentConstants.COLUMN_ONE, payment.getOrderID());
 			preparedStatement.setString(PaymentConstants.COLUMN_TWO, payment.getPaymentType());
 			preparedStatement.setDouble(PaymentConstants.COLUMN_THREE, payment.getPayAmount());
 			preparedStatement.setString(PaymentConstants.COLUMN_FOUR, payment.getDescription());
+			
+			//Execute SQL syntax
 			int resultset = preparedStatement.executeUpdate();
 			
 			System.out.println(preparedStatement);
@@ -57,6 +56,7 @@ public class PaymentServiceImpl implements IPaymentService {
 	@Override
 	public Payment selectPaymentByID(int payid) {
 		
+		//Calling selectPayment Method
 		return selectPayment(payid).get(0);
 	}
 
@@ -64,15 +64,22 @@ public class PaymentServiceImpl implements IPaymentService {
 	//Use for get selected payment details
 	@Override
 	public ArrayList<Payment> selectPayment(int payID) {
+		
+		//declare an array 
 		ArrayList<Payment> selectpayment = new ArrayList<>();
 		
-		try (Connection connection = DBconnect.getConnection();
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
 				PreparedStatement preparedStatement = connection.prepareStatement(PaymentQuery.GET_PAYMENT_BY_ID);) {
 			
+			//prepare SQL syntax
 			preparedStatement.setInt(1,payID);
-			System.out.println(preparedStatement);
+						
+			//execute SQL syntax
 			ResultSet resultSet = preparedStatement.executeQuery();
+
+			System.out.println(preparedStatement);
 			
+			//Getting data from DB and assign to setters 
 			while(resultSet.next()) {
 				Payment payment = new Payment();
 				
@@ -83,6 +90,7 @@ public class PaymentServiceImpl implements IPaymentService {
 				payment.setDescription(resultSet.getString("description"));
 				payment.setPayAmount(resultSet.getDouble("totAmount"));
 				
+				//assign values to array
 				selectpayment.add(payment);
 				
 			}
@@ -100,6 +108,7 @@ public class PaymentServiceImpl implements IPaymentService {
 	@Override
 	public Payment selectPaymentOrder(String orderID) {
 		
+		//Calling PaymentByOrderId method
 		return PaymentByOrderId(orderID).get(0);
 	}
 	
@@ -107,22 +116,22 @@ public class PaymentServiceImpl implements IPaymentService {
 	//Use for get payment details for relevant order
 	@Override
 	public ArrayList<Payment> PaymentByOrderId(String orderID) {
+		
+		//declare an array 
 		ArrayList<Payment> selectOrderPayment = new ArrayList<>();
 		
-		try (Connection connection = DBconnect.getConnection();
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
 				PreparedStatement preparedStatement = connection.prepareStatement(PaymentQuery.GET_PAYMENT_BY_ORDER_ID);) {
 			
+			//prepare SQL syntax
 			preparedStatement.setString(1,orderID);
+			
 			System.out.println(preparedStatement);
+			
+			//execute SQL syntax
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
-			/*boolean rs = selectOrderPayment.isEmpty();
-			if (rs == true) {
-				System.out.println("Array List Empty!!!");
-				
-				
-			}*/
-			
+			//Getting data from DB and assign to setters 			
 			if (resultSet.next()) {
 				Payment payment = new Payment();
 				
@@ -133,8 +142,11 @@ public class PaymentServiceImpl implements IPaymentService {
 				payment.setDescription(resultSet.getString("description"));
 				payment.setPayAmount(resultSet.getDouble("totAmount"));
 				
+				//assign values to array
 				selectOrderPayment.add(payment);
+				
 			} else {
+				
 				System.out.println("Array List empty");
 			}
 						
@@ -151,14 +163,18 @@ public class PaymentServiceImpl implements IPaymentService {
 	@Override
 	public ArrayList<Payment> selectAllPayment() {
 		
+		//declare an array 
 		ArrayList<Payment> paymentlist = new ArrayList<Payment>();
 		
-		try (Connection connection = DBconnect.getConnection();
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
 				PreparedStatement preparedStatement = connection.prepareStatement(PaymentQuery.GET_ALL_PAYMENT);) {
 			
 			System.out.println(preparedStatement);
+			
+			//execute SQL syntax
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
+			//Getting data from DB and assign to setters 
 			while(resultSet.next()) {
 				Payment payment = new Payment();
 				
@@ -169,6 +185,7 @@ public class PaymentServiceImpl implements IPaymentService {
 				payment.setDescription(resultSet.getString("description"));
 				payment.setPayAmount(resultSet.getDouble("totAmount"));
 				
+				//assign values to array
 				paymentlist.add(payment);
 				
 			}
@@ -188,10 +205,13 @@ public class PaymentServiceImpl implements IPaymentService {
 	public boolean deletePayment(Payment payment) {
 		boolean result = false;
 		
-		try (Connection connection = DBconnect.getConnection();
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
 				PreparedStatement preparedStatement = connection.prepareStatement(PaymentQuery.DELETE_PAYMENT_SQL);) {
 			
+			//prepare SQL syntax
 			preparedStatement.setInt(1, payment.getPaymentID());
+			
+			//execute SQL syntax
 			result = preparedStatement.executeUpdate() > 0;
 			
 			System.out.println(preparedStatement);
@@ -213,9 +233,10 @@ public class PaymentServiceImpl implements IPaymentService {
 	public boolean updatePaymentAdmin(Payment payment) {
 		boolean result = false;
 		
-		try (Connection connection = DBconnect.getConnection();
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
 				PreparedStatement preparedStatement = connection.prepareStatement(PaymentQuery.UPDATE_PAYMENT_ADMIN);) {
 			
+			//prepare SQL syntax
 			preparedStatement.setString(PaymentConstants.COLUMN_ONE, payment.getOrderID());
 			preparedStatement.setDouble(PaymentConstants.COLUMN_TWO, payment.getPayAmount());
 			preparedStatement.setString(PaymentConstants.COLUMN_THREE, payment.getPaymentType());
@@ -223,6 +244,7 @@ public class PaymentServiceImpl implements IPaymentService {
 			preparedStatement.setString(PaymentConstants.COLUMN_FIVE, payment.getPaymentDate());
 			preparedStatement.setInt(PaymentConstants.COLUMN_SIX, payment.getPaymentID());
 			
+			//execute SQL syntax
 			result = preparedStatement.executeUpdate() > 0;
 			
 			System.out.println(preparedStatement);
@@ -244,14 +266,16 @@ public class PaymentServiceImpl implements IPaymentService {
 	public boolean updatePaymentCustomer(Payment payment) {
 		boolean result = false;
 		
-		try (Connection connection = DBconnect.getConnection();
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
 				PreparedStatement preparedStatement = connection.prepareStatement(PaymentQuery.UPDATE_PAYMENT_CUSTOMER);) {
 			
+			//prepare SQL syntax
 			preparedStatement.setString(PaymentConstants.COLUMN_ONE, payment.getPaymentType());
 			preparedStatement.setString(PaymentConstants.COLUMN_TWO, payment.getDescription());
 			preparedStatement.setString(PaymentConstants.COLUMN_THREE, payment.getPaymentDate());
 			preparedStatement.setString(PaymentConstants.COLUMN_FOUR, payment.getOrderID());
 			
+			//execute SQL syntax
 			result = preparedStatement.executeUpdate() > 0;
 			
 			System.out.println(preparedStatement);

@@ -65,7 +65,7 @@ pageEncoding="ISO-8859-1"
                         </div>
 						
                         <div class="form-row">
-                            <div class="name">Due Date</div>
+                            <div class="name">Date</div>
                             <div class="value">
                                 <div class="input-group">
                                     <input class="input--style-5" type="date" name="paydate" required="required">

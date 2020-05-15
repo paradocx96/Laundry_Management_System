@@ -35,9 +35,13 @@ public class ViewCustomerServlet extends HttpServlet {
 		response.setContentType("text/html");
 		
 		int cusID = Integer.parseInt(request.getParameter("custId"));
+		
 		ICustomer iCustomer = new ICustomerImpl();
+		
 		Customer customer = iCustomer.selectCustomerByID(cusID);
+		
 		request.setAttribute("customer", customer);
+		
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/viewCustomerAdmin.jsp");
 		requestDispatcher.forward(request, response);
 	}

@@ -6,6 +6,7 @@ package com.lms.model;
 
 public class Payment {
 	
+	//Declare variables	
 	private int paymentID;
 	private String orderID;
 	private String paymentDate;
@@ -14,6 +15,7 @@ public class Payment {
 	private double payAmount;
 	
 
+	//Implement constructors
 	public Payment(int paymentID, String orderID, String paymentDate, String paymentType, String description, double payAmount) {
 		super();
 		this.paymentID = paymentID;
@@ -28,15 +30,12 @@ public class Payment {
 		super();
 		this.paymentID = paymentID;
 	}
-
 	
 	public Payment(String orderID, double payAmount) {
 		super();
 		this.orderID = orderID;
 		this.payAmount = payAmount;
-	}
-	
-	
+	}	
 
 	public Payment(String orderID, String paymentType, String description, double payAmount) {
 		super();
@@ -46,10 +45,11 @@ public class Payment {
 		this.payAmount = payAmount;
 	}
 
-	public Payment() {
-		
+	public Payment() {	
 	}
-
+	
+	
+	//Implement getters and setters
 	public int getPaymentID() {
 		return paymentID;
 	}
@@ -96,8 +96,6 @@ public class Payment {
 
 	public void setPayAmount(double payAmount) {
 		this.payAmount = payAmount;
-	}
-	
-	
+	}	
 
 }

@@ -35,9 +35,13 @@ public class DeletePaymentServlet extends HttpServlet {
 		response.setContentType("text/html");
 		
 		int paymentID = Integer.parseInt(request.getParameter("paymentID"));
+		
 		Payment payment = new Payment(paymentID);
-		IPaymentService iPaymentService = new PaymentServiceImpl();		
+		
+		IPaymentService iPaymentService = new PaymentServiceImpl();
+		
 		iPaymentService.deletePayment(payment);
+		
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/paymentList.jsp");
 		requestDispatcher.forward(request, response);
 		

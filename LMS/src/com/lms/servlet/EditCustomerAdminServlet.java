@@ -35,9 +35,13 @@ public class EditCustomerAdminServlet extends HttpServlet {
 		response.setContentType("text/html");
 		
 		int custid = Integer.parseInt(request.getParameter("custId"));
+		
 		ICustomer iCustomer = new ICustomerImpl();
+		
 		Customer customer = iCustomer.selectCustomerByID(custid);	
+		
 		request.setAttribute("customer", customer);
+		
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/editCustomerAdmin.jsp");
 		requestDispatcher.forward(request, response);
 		

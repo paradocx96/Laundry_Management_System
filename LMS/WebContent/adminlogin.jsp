@@ -46,20 +46,21 @@
 					</div>
 					
 					<div class="hr"></div>
+					
 					<div class="foot-lnk">
 						<a href="#forgot">Forgot Password?</a>
-					</div>
-					
-					<br>
-					<br>
-		
+					</div><br>
+						
 					<div class="foot-lnk">
 						<a href="addEmployee.jsp">Sign up?</a>
-					</div>
-					<br>	
-					<br>
+					</div><br>	
 					<center>
-						<a href="login.jsp"> <p style="color:#808080;">Customer Login</p></a>
+						<a href="login.jsp">
+							<p style="color:#808080;">Customer Login</p>
+						</a>
+						<a href="index.jsp">
+							<p style="color:#808080;">HOME</p>
+						</a>
 					</center>
 				</div>
 			</div>

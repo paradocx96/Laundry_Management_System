@@ -35,8 +35,11 @@ public class RegistrationAdminServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean out;
+		
+		//Create an object
 		Customer customer = new Customer();
 		
+		//getting values from JSP and assign to object setters
 		customer.setFirstName(request.getParameter("fname"));
 		customer.setLastName(request.getParameter("lname"));
 		customer.setAddress(request.getParameter("address"));
@@ -45,9 +48,13 @@ public class RegistrationAdminServlet extends HttpServlet {
 		customer.setUserName(request.getParameter("username"));
 		customer.setPassword(request.getParameter("password"));
 		
+		//create an object
 		ICustomer iCustomer = new ICustomerImpl();
+		
+		//calling relevant method
 		out = iCustomer.addCustomer(customer);
 		
+		//check the results and redirect
 		if (out == true) {
 			RequestDispatcher requestDispatcher1 = request.getRequestDispatcher("customerlist.jsp");
 			requestDispatcher1.forward(request, response);

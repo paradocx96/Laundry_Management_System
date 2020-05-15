@@ -24,10 +24,11 @@ public class ICustomerImpl implements ICustomer {
 	public boolean addCustomer(Customer customer) { //By_IT19180526
 		boolean out = false;
 		
-		try (Connection connection = DBconnect.getConnection();
+		
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
 			PreparedStatement preparedStatement = connection.prepareStatement(CustomerAdminQuery.ADD_CUSTOMER_ADMIN);) {
 			
-			
+			//Prepare the SQL syntax
 			preparedStatement.setString(CustomerAdminConstants.COLUMN_ONE, customer.getFirstName());
 			preparedStatement.setString(CustomerAdminConstants.COLUMN_TWO, customer.getLastName());
 			preparedStatement.setString(CustomerAdminConstants.COLUMN_THREE, customer.getAddress());
@@ -35,6 +36,8 @@ public class ICustomerImpl implements ICustomer {
 			preparedStatement.setInt(CustomerAdminConstants.COLUMN_FIVE, customer.getPhone());
 			preparedStatement.setString(CustomerAdminConstants.COLUMN_SIX, customer.getUserName());
 			preparedStatement.setString(CustomerAdminConstants.COLUMN_SEVEN, customer.getPassword());
+			
+			//Execute SQL syntax
 			int result = preparedStatement.executeUpdate();
 			
 			System.out.println(preparedStatement);
@@ -58,7 +61,8 @@ public class ICustomerImpl implements ICustomer {
 	//Use for get selected customer details
 	@Override
 	public Customer selectCustomerByID(int custID) {
-			
+		
+		//Calling selectCustomer Method
 		return selectCustomer(custID).get(0);
 	}
 		
@@ -67,15 +71,22 @@ public class ICustomerImpl implements ICustomer {
 	//Use for get selected customer details
 	@Override
 	public ArrayList<Customer> selectCustomer(int custID) { //By_IT19180526
-		ArrayList<Customer> selectedcustomer = new ArrayList<>();
 		
-		try (Connection connection = DBconnect.getConnection();
+		//declare an array 
+		ArrayList<Customer> selectedcustomer = new ArrayList<>(); 
+		
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
 				PreparedStatement preparedStatement = connection.prepareStatement(CustomerAdminQuery.GET_CUSTOMER_BY_ID);) {
 			
+			//prepare SQL syntax
 			preparedStatement.setInt(1,custID);
+			
+			//execute SQL syntax
 			ResultSet resultSet = preparedStatement.executeQuery();
+			
 			System.out.println(preparedStatement);
-				
+			
+			//Getting data from DB and assign to setters 
 			while (resultSet.next()) {
 				Customer customer = new Customer();
 					
@@ -88,6 +99,7 @@ public class ICustomerImpl implements ICustomer {
 				customer.setUserName(resultSet.getString("userName"));
 			   	customer.setPassword(resultSet.getString("password"));
 			    	
+			   	//assign values to array
 			   	selectedcustomer.add(customer);
 											
 			}		
@@ -106,9 +118,10 @@ public class ICustomerImpl implements ICustomer {
 	public boolean updateCustomerAdmin(Customer customer) { //By_IT19180526
 		boolean row = false;
 		
-		try (Connection connection = DBconnect.getConnection();
-				PreparedStatement preparedStatement = connection.prepareStatement(CustomerAdminQuery.UPDATE_CUSTOMER_ADMIN))
-		{
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
+				PreparedStatement preparedStatement = connection.prepareStatement(CustomerAdminQuery.UPDATE_CUSTOMER_ADMIN)) {
+			
+			//prepare SQL syntax
 			preparedStatement.setString(CustomerAdminConstants.COLUMN_ONE, customer.getFirstName());
 			preparedStatement.setString(CustomerAdminConstants.COLUMN_TWO, customer.getLastName());
 			preparedStatement.setString(CustomerAdminConstants.COLUMN_THREE, customer.getAddress());
@@ -118,9 +131,7 @@ public class ICustomerImpl implements ICustomer {
 			preparedStatement.setString(CustomerAdminConstants.COLUMN_SEVEN, customer.getPassword());
 			preparedStatement.setInt(CustomerAdminConstants.COLUMN_EIGHT, customer.getCustId());
 			
-			
-			System.out.println(preparedStatement);
-			
+			//execute SQL syntax
 			row = preparedStatement.executeUpdate() > 0;
 			
 			preparedStatement.close();
@@ -140,10 +151,13 @@ public class ICustomerImpl implements ICustomer {
 	public boolean deleteCustomer(Customer customer) { //By_IT19180526
 		boolean result = false;
 		
-		try (Connection connection = DBconnect.getConnection();
+		try (Connection connection = DBconnect.getConnection(); /*Getting DB Connection*/
 				PreparedStatement preparedStatement = connection.prepareStatement(CustomerAdminQuery.DELETE_CUSTOMER_ADMIN);) {
 			
+			//prepare SQL syntax
 			preparedStatement.setInt(1, customer.getCustId());
+			
+			//execute SQL syntax
 			result = preparedStatement.executeUpdate() > 0;
 			
 			System.out.println(preparedStatement);
