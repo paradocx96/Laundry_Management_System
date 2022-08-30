@@ -19,42 +19,42 @@ import com.lms.service.EmployeeService;
  */
 @WebServlet("/EditEmployeeServlet")
 public class EditEmployeeServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
     public EditEmployeeServlet() {
-      
-       
+
+
     }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		try {
-			
-			editEmployee(request,response);
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
-	
-	private void editEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		
-		int empId = Integer.parseInt(request.getParameter("empId"));
-		
-		List<Employee> empUpdate = EmployeeService.selectEmployee(empId);
-		request.setAttribute("empUpdate", empUpdate);
-		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("updateEmployee.jsp");
-		requestDispatcher.forward(request, response);
-		
-		
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+
+            editEmployee(request, response);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void editEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+
+        int empId = Integer.parseInt(request.getParameter("empId"));
+
+        List<Employee> empUpdate = EmployeeService.selectEmployee(empId);
+        request.setAttribute("empUpdate", empUpdate);
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("updateEmployee.jsp");
+        requestDispatcher.forward(request, response);
+
+
+    }
 }

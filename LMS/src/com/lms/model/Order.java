@@ -1,69 +1,67 @@
 package com.lms.model;
 
-public class Order{
+public class Order {
 
-	private int orderId;
-	private int custId;
-	private double weight;
-	private String orderDate;
-	private String deliveryDate;
-	
-	public Order() {}
-	
-	public Order(int orderId, int custId, double weight, String orderDate, String deliveryDate) {
-		super();
-		this.orderId = orderId;
-		this.custId = custId;
-		this.weight = weight;
-		this.orderDate = orderDate;
-		this.deliveryDate = deliveryDate;
-	}
-	
-	public Order(int orderId) {
-		super();
-		this.orderId = orderId;
-	}
+    private int orderId;
+    private int custId;
+    private double weight;
+    private String orderDate;
+    private String deliveryDate;
 
-	public int getOrderId() {
-		return orderId;
-	}
+    public Order() {
+    }
 
-	public void setOrderId(int orderId) {
-		this.orderId = orderId;
-	}
+    public Order(int orderId, int custId, double weight, String orderDate, String deliveryDate) {
+        super();
+        this.orderId = orderId;
+        this.custId = custId;
+        this.weight = weight;
+        this.orderDate = orderDate;
+        this.deliveryDate = deliveryDate;
+    }
 
-	public int getCustId() {
-		return custId;
-	}
+    public Order(int orderId) {
+        super();
+        this.orderId = orderId;
+    }
 
-	public void setCustId(int custId) {
-		this.custId = custId;
-	}
+    public int getOrderId() {
+        return orderId;
+    }
 
-	public double getWeight() {
-		return weight;
-	}
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
 
-	public void setWeight(double weight) {
-		this.weight = weight;
-	}
+    public int getCustId() {
+        return custId;
+    }
 
-	public String getOrderDate() {
-		return orderDate;
-	}
+    public void setCustId(int custId) {
+        this.custId = custId;
+    }
 
-	public void setOrderDate(String orderDate) {
-		this.orderDate = orderDate;
-	}
+    public double getWeight() {
+        return weight;
+    }
 
-	public String getDeliveryDate() {
-		return deliveryDate;
-	}
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
 
-	public void setDeliveryDate(String deliveryDate) {
-		this.deliveryDate = deliveryDate;
-	}
+    public String getOrderDate() {
+        return orderDate;
+    }
 
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
 
-	
+    public String getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
 }

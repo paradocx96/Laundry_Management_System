@@ -19,32 +19,32 @@ import com.lms.service.PaymentServiceImpl;
 
 @WebServlet("/DeletePaymentServlet")
 public class DeletePaymentServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
 
     public DeletePaymentServlet() {
         super();
     }
-    
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
-	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		
-		int paymentID = Integer.parseInt(request.getParameter("paymentID"));
-		
-		Payment payment = new Payment(paymentID);
-		
-		IPaymentService iPaymentService = new PaymentServiceImpl();
-		
-		iPaymentService.deletePayment(payment);
-		
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/paymentList.jsp");
-		requestDispatcher.forward(request, response);
-		
-	}
-	
+        doPost(request, response);
+    }
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+
+        int paymentID = Integer.parseInt(request.getParameter("paymentID"));
+
+        Payment payment = new Payment(paymentID);
+
+        IPaymentService iPaymentService = new PaymentServiceImpl();
+
+        iPaymentService.deletePayment(payment);
+
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/paymentList.jsp");
+        requestDispatcher.forward(request, response);
+
+    }
+
 }

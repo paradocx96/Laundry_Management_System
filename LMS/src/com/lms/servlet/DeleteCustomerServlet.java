@@ -16,41 +16,40 @@ import com.lms.service.ICustomerService;
 
 @WebServlet("/DeleteCustomerServlet")
 public class DeleteCustomerServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-    
+    private static final long serialVersionUID = 1L;
+
     public DeleteCustomerServlet() {
         super();
     }
 
-	
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.doGet(request, response);
-	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		try {
-			deleteCustomer(request,response);
-		} catch (ServletException | IOException | SQLException e) {
-			e.printStackTrace();
-		}
-			
-	}
-	
-	private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, IOException {
-		
+        this.doGet(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+            deleteCustomer(request, response);
+        } catch (ServletException | IOException | SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, IOException {
+
         int custId = Integer.parseInt(request.getParameter("custId"));
         Customer customer = new Customer(custId);
-        ICustomerService icustomer = new CustomerServiceImpl(); 
-        
+        ICustomerService icustomer = new CustomerServiceImpl();
+
         icustomer.deleteCustomer(customer);
-        
-       
-    
+
+
         RequestDispatcher dis = getServletContext().getRequestDispatcher("/customerlist.jsp");
-		dis.forward(request, response);
- 
+        dis.forward(request, response);
+
     }
-	
-	
+
+
 }

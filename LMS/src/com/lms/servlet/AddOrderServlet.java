@@ -13,30 +13,28 @@ import com.lms.service.OrderService;
 
 @WebServlet("/AddOrderServlet")
 public class AddOrderServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String orderId = request.getParameter("orderId");
-		String custId = request.getParameter("custId");
-		String weight = request.getParameter("weight");
-		String orderDate = request.getParameter("orderDate");
-		String deliveryDate = request.getParameter("deliveryDate");
-		
-		boolean isTrue;
-		
-		isTrue = OrderService.insertOrder(orderId, custId, weight, orderDate, deliveryDate);
-		
-		if (isTrue == true) {
-			RequestDispatcher dis=  getServletContext().getRequestDispatcher("/orderlist.jsp");
-			dis.forward(request, response);
-		}
-		
-		else {
-			RequestDispatcher dis2= getServletContext().getRequestDispatcher("/index.jsp");
-			dis2.forward(request, response);
-		}
-		
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String orderId = request.getParameter("orderId");
+        String custId = request.getParameter("custId");
+        String weight = request.getParameter("weight");
+        String orderDate = request.getParameter("orderDate");
+        String deliveryDate = request.getParameter("deliveryDate");
+
+        boolean isTrue;
+
+        isTrue = OrderService.insertOrder(orderId, custId, weight, orderDate, deliveryDate);
+
+        if (isTrue == true) {
+            RequestDispatcher dis = getServletContext().getRequestDispatcher("/orderlist.jsp");
+            dis.forward(request, response);
+        } else {
+            RequestDispatcher dis2 = getServletContext().getRequestDispatcher("/index.jsp");
+            dis2.forward(request, response);
+        }
+
+    }
 
 }

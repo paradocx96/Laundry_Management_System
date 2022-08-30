@@ -23,50 +23,48 @@ import com.lms.util.DBconnect;
  */
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String userName = request.getParameter("userName");
-		String password = request.getParameter("password");
-		
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
-		
-		try {
-			
-			Connection con = DBconnect.getConnection();
-			Statement state = con.createStatement();  
-			String sql = "select userName,password from customer where userName='"+userName+"'and password='"+password+"'";
-			ResultSet result = state.executeQuery(sql);
-			
-					
-				if(result.next()) {
-					
-					HttpSession session = request.getSession();
-					session.setAttribute("userName", userName);
-					response.sendRedirect("dashboard.jsp");
-				
-					
-				}else {
-					
-					
-					response.sendRedirect("error.jsp");
-					
-				}
-		
-		} catch (SQLException e) {
-			
-			e.printStackTrace();
-		}  
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
 
-		//response.sendRedirect("dashboard.jsp");
-		//RequestDispatcher dis = request.getRequestDispatcher("dashboard.jsp");
-		//dis.forward(request, response);		
 
-	}
+        try {
+
+            Connection con = DBconnect.getConnection();
+            Statement state = con.createStatement();
+            String sql = "select userName,password from customer where userName='" + userName + "'and password='" + password + "'";
+            ResultSet result = state.executeQuery(sql);
+
+
+            if (result.next()) {
+
+                HttpSession session = request.getSession();
+                session.setAttribute("userName", userName);
+                response.sendRedirect("dashboard.jsp");
+
+
+            } else {
+
+
+                response.sendRedirect("error.jsp");
+
+            }
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+        }
+
+        //response.sendRedirect("dashboard.jsp");
+        //RequestDispatcher dis = request.getRequestDispatcher("dashboard.jsp");
+        //dis.forward(request, response);
+
+    }
 
 }

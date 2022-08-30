@@ -5,292 +5,273 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-  
-  <welcome-file-list>
-  	<welcome-file>index.jsp</welcome-file>
-  	<welcome-file>dashboard.jsp</welcome-file>
-  	<welcome-file>logout.jsp</welcome-file>
-  	<welcome-file>registration.jsp</welcome-file>
-  </welcome-file-list>
-         
-  <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.lms.servlet.LoginServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/Login</url-pattern>
-  </servlet-mapping>
- 
-   <servlet>
-    <servlet-name>AddOrderServlet</servlet-name>
-    <servlet-class>com.lms.servlet.AddOrderServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddOrderServlet</servlet-name>
-    <url-pattern>/AddOrder</url-pattern>
-  </servlet-mapping>
-  
-  
-     <servlet>
-    <servlet-name>ViewOrderServlet</servlet-name>
-    <servlet-class>com.lms.servlet.ViewOrderServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ViewOrderServlet</servlet-name>
-    <url-pattern>/ViewOrder</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-    <servlet-name>RegistrationServlet</servlet-name>
-    <servlet-class>com.lms.servlet.RegistrationServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>RegistrationServlet</servlet-name>
-    <url-pattern>/Registration</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>  
-    <servlet-name>DisplayCustomerBioServlet</servlet-name>
-    <servlet-class>com.lms.servlet.DisplayCustomerBioServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DisplayCustomerBioServlet</servlet-name>
-    <url-pattern>/DisplayBios</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-    <servlet-name>EditCustomerBiosServlet</servlet-name>
-    <servlet-class>com.lms.servlet.EditCustomerBiosServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>EditCustomerBiosServlet</servlet-name>
-    <url-pattern>/EditCustomerBios</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-  	<servlet-name>AddPayment</servlet-name>
-  	<servlet-class>com.lms.servlet.AddPaymentServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>AddPayment</servlet-name>
-  	<url-pattern>/addPayment</url-pattern>
-  </servlet-mapping>
-  
-
-  <servlet>
-  	<servlet-name>DeletePaymentServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.DeletePaymentServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>DeletePaymentServlet</servlet-name>
-  	<url-pattern>/deletePayment</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-  	<servlet-name>UpdatePaymentAdminServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.UpdatePaymentAdminServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>UpdatePaymentAdminServlet</servlet-name>
-  	<url-pattern>/UpdatePaymentAdmin</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-  	<servlet-name>EditPaymentServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.EditPaymentServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>EditPaymentServlet</servlet-name>
-  	<url-pattern>/editPaymentAdmin</url-pattern>
-  </servlet-mapping>
-
-  
-  <servlet>
-  	<servlet-name>ListPaymentServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.ListPaymentServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>ListPaymentServlet</servlet-name>
-  	<url-pattern>/ListPayment</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet>
-  	<servlet-name>ViewPayment</servlet-name>
-  	<servlet-class>com.lms.servlet.ViewPaymentServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>ViewPayment</servlet-name>
-  	<url-pattern>/ViewPayment</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-  	<servlet-name>DeleteOrderServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.DeleteOrderServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>DeleteOrderServlet</servlet-name>
-  	<url-pattern>/DeleteOrder</url-pattern>
-  </servlet-mapping>
-  
-  
 
     <welcome-file-list>
-  	<welcome-file>index.jsp</welcome-file>
-  	<welcome-file>dashboard.jsp</welcome-file>
-  	<welcome-file>logout.jsp</welcome-file>
-  	<welcome-file>registration.jsp</welcome-file>
-  </welcome-file-list>
-  
-  <servlet>
-  	<servlet-name>UpdateOrderServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.UpdateOrderServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>UpdateOrderServlet</servlet-name>
-  	<url-pattern>/UpdateOrder</url-pattern>
-  </servlet-mapping>
- 
-  <servlet>
-  	<servlet-name>ViewPaymentByOrderServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.ViewPaymentByOrderServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>ViewPaymentByOrderServlet</servlet-name>
-  	<url-pattern>/ViewPaymentByOrder</url-pattern>
-  </servlet-mapping>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>dashboard.jsp</welcome-file>
+        <welcome-file>logout.jsp</welcome-file>
+        <welcome-file>registration.jsp</welcome-file>
+    </welcome-file-list>
 
-  <servlet>
-  	<servlet-name>EditOrderServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.EditOrderServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>EditOrderServlet</servlet-name>
-  	<url-pattern>/EditOrder</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>AddEmployeeServlet</servlet-name>
-    <servlet-class>com.lms.servlet.AddEmployeeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddEmployeeServlet</servlet-name>
-    <url-pattern>/AddEmployee</url-pattern>
-  </servlet-mapping>
-  
-   <servlet>
-    <servlet-name>AdminLoginServlet</servlet-name>
-    <servlet-class>com.lms.servlet.AdminLoginServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AdminLoginServlet</servlet-name>
-    <url-pattern>/AdminLogin</url-pattern>
-  </servlet-mapping>
- 
- 	<servlet>
-    <servlet-name>DeleteEmployeeServlet</servlet-name>
-    <servlet-class>com.lms.servlet.DeleteEmployeeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DeleteEmployeeServlet</servlet-name>
-    <url-pattern>/deleteEmployee</url-pattern>
-  </servlet-mapping>
- 	
- 	<servlet>
-    <servlet-name>UpdateEmployeeServlet</servlet-name>
-    <servlet-class>com.lms.servlet.UpdateEmployeeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UpdateEmployeeServlet</servlet-name>
-    <url-pattern>/UpdateEmployee</url-pattern>
-  </servlet-mapping>
- 
-  <servlet>
-    <servlet-name>DisplayEmployeeList</servlet-name>
-    <servlet-class>com.lms.servlet.DisplayEmployeeList</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DisplayEmployeeList</servlet-name>
-    <url-pattern>/EmployeeList</url-pattern>
-  </servlet-mapping>
- 
-  <servlet>
-    <servlet-name>EditEmployeeServlet</servlet-name>
-    <servlet-class>com.lms.servlet.EditEmployeeServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>EditEmployeeServlet</servlet-name>
-    <url-pattern>/editEmployee</url-pattern>
-  </servlet-mapping>	
- 	
- <servlet>
-  	<servlet-name>DeleteCustomerServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.DeleteCustomerServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>DeleteCustomerServlet</servlet-name>
-  	<url-pattern>/DeleteCustomer</url-pattern>
-  </servlet-mapping>
-    
-  <servlet>
-  	<servlet-name>EditCustomerAdminServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.EditCustomerAdminServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>EditCustomerAdminServlet</servlet-name>
-  	<url-pattern>/EditCustomerAdmin</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>UpdateCustomerAdminServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.UpdateCustomerAdminServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>UpdateCustomerAdminServlet</servlet-name>
-  	<url-pattern>/UpdateCustomerAdmin</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>ViewCustomerServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.ViewCustomerServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>ViewCustomerServlet</servlet-name>
-  	<url-pattern>/ViewCustomer</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>RegistrationAdminServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.RegistrationAdminServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>RegistrationAdminServlet</servlet-name>
-  	<url-pattern>/RegistrationAdmin</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>EditPaymentCustomerServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.EditPaymentCustomerServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>EditPaymentCustomerServlet</servlet-name>
-  	<url-pattern>/EditPaymentCustomer</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>UpdatePaymentCustomerServlet</servlet-name>
-  	<servlet-class>com.lms.servlet.UpdatePaymentCustomerServlet</servlet-class>
-  </servlet>  
-  <servlet-mapping>
-  	<servlet-name>UpdatePaymentCustomerServlet</servlet-name>
-  	<url-pattern>/UpdatePaymentCustomer</url-pattern>
-  </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.lms.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddOrderServlet</servlet-name>
+        <servlet-class>com.lms.servlet.AddOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddOrderServlet</servlet-name>
+        <url-pattern>/AddOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewOrderServlet</servlet-name>
+        <servlet-class>com.lms.servlet.ViewOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewOrderServlet</servlet-name>
+        <url-pattern>/ViewOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <servlet-class>com.lms.servlet.RegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationServlet</servlet-name>
+        <url-pattern>/Registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DisplayCustomerBioServlet</servlet-name>
+        <servlet-class>com.lms.servlet.DisplayCustomerBioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayCustomerBioServlet</servlet-name>
+        <url-pattern>/DisplayBios</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditCustomerBiosServlet</servlet-name>
+        <servlet-class>com.lms.servlet.EditCustomerBiosServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditCustomerBiosServlet</servlet-name>
+        <url-pattern>/EditCustomerBios</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddPayment</servlet-name>
+        <servlet-class>com.lms.servlet.AddPaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPayment</servlet-name>
+        <url-pattern>/addPayment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeletePaymentServlet</servlet-name>
+        <servlet-class>com.lms.servlet.DeletePaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeletePaymentServlet</servlet-name>
+        <url-pattern>/deletePayment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdatePaymentAdminServlet</servlet-name>
+        <servlet-class>com.lms.servlet.UpdatePaymentAdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdatePaymentAdminServlet</servlet-name>
+        <url-pattern>/UpdatePaymentAdmin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditPaymentServlet</servlet-name>
+        <servlet-class>com.lms.servlet.EditPaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditPaymentServlet</servlet-name>
+        <url-pattern>/editPaymentAdmin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListPaymentServlet</servlet-name>
+        <servlet-class>com.lms.servlet.ListPaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListPaymentServlet</servlet-name>
+        <url-pattern>/ListPayment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewPayment</servlet-name>
+        <servlet-class>com.lms.servlet.ViewPaymentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewPayment</servlet-name>
+        <url-pattern>/ViewPayment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <servlet-class>com.lms.servlet.DeleteOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <url-pattern>/DeleteOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateOrderServlet</servlet-name>
+        <servlet-class>com.lms.servlet.UpdateOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateOrderServlet</servlet-name>
+        <url-pattern>/UpdateOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewPaymentByOrderServlet</servlet-name>
+        <servlet-class>com.lms.servlet.ViewPaymentByOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewPaymentByOrderServlet</servlet-name>
+        <url-pattern>/ViewPaymentByOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditOrderServlet</servlet-name>
+        <servlet-class>com.lms.servlet.EditOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditOrderServlet</servlet-name>
+        <url-pattern>/EditOrder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <servlet-class>com.lms.servlet.AddEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddEmployeeServlet</servlet-name>
+        <url-pattern>/AddEmployee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <servlet-class>com.lms.servlet.AdminLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/AdminLogin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteEmployeeServlet</servlet-name>
+        <servlet-class>com.lms.servlet.DeleteEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteEmployeeServlet</servlet-name>
+        <url-pattern>/deleteEmployee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateEmployeeServlet</servlet-name>
+        <servlet-class>com.lms.servlet.UpdateEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateEmployeeServlet</servlet-name>
+        <url-pattern>/UpdateEmployee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DisplayEmployeeList</servlet-name>
+        <servlet-class>com.lms.servlet.DisplayEmployeeList</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisplayEmployeeList</servlet-name>
+        <url-pattern>/EmployeeList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditEmployeeServlet</servlet-name>
+        <servlet-class>com.lms.servlet.EditEmployeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditEmployeeServlet</servlet-name>
+        <url-pattern>/editEmployee</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteCustomerServlet</servlet-name>
+        <servlet-class>com.lms.servlet.DeleteCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteCustomerServlet</servlet-name>
+        <url-pattern>/DeleteCustomer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditCustomerAdminServlet</servlet-name>
+        <servlet-class>com.lms.servlet.EditCustomerAdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditCustomerAdminServlet</servlet-name>
+        <url-pattern>/EditCustomerAdmin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateCustomerAdminServlet</servlet-name>
+        <servlet-class>com.lms.servlet.UpdateCustomerAdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateCustomerAdminServlet</servlet-name>
+        <url-pattern>/UpdateCustomerAdmin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewCustomerServlet</servlet-name>
+        <servlet-class>com.lms.servlet.ViewCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewCustomerServlet</servlet-name>
+        <url-pattern>/ViewCustomer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegistrationAdminServlet</servlet-name>
+        <servlet-class>com.lms.servlet.RegistrationAdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationAdminServlet</servlet-name>
+        <url-pattern>/RegistrationAdmin</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditPaymentCustomerServlet</servlet-name>
+        <servlet-class>com.lms.servlet.EditPaymentCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditPaymentCustomerServlet</servlet-name>
+        <url-pattern>/EditPaymentCustomer</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdatePaymentCustomerServlet</servlet-name>
+        <servlet-class>com.lms.servlet.UpdatePaymentCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdatePaymentCustomerServlet</servlet-name>
+        <url-pattern>/UpdatePaymentCustomer</url-pattern>
+    </servlet-mapping>
 </web-app>
 

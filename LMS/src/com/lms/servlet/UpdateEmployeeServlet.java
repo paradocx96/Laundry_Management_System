@@ -17,8 +17,8 @@ import com.lms.service.EmployeeService;
  */
 @WebServlet("/UpdateEmployeeServlet")
 public class UpdateEmployeeServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+    private static final long serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -28,37 +28,37 @@ public class UpdateEmployeeServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-		
-	}
+        doGet(request, response);
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		try {
-			updateEmployee(request,response);
-		} catch (ServletException | IOException | SQLException e) {
-			e.printStackTrace();
-		}		
-		
-	}
-	
-	private void updateEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, IOException {
-		
-		int empId = Integer.parseInt(request.getParameter("empId"));
-		String fname = request.getParameter("fname");
-		String lname = request.getParameter("lname");
-		String address = request.getParameter("address");
-		String dob = request.getParameter("dob");
-		int phone = Integer.parseInt(request.getParameter("phone")); 
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		
-		Employee emp = new Employee(empId,fname,lname,address,dob,phone,username,password); 
-		EmployeeService.updateEmployee(emp);
-		response.sendRedirect("employeeList.jsp"); 
-		
-		
-	}
-	
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        try {
+            updateEmployee(request, response);
+        } catch (ServletException | IOException | SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void updateEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, IOException {
+
+        int empId = Integer.parseInt(request.getParameter("empId"));
+        String fname = request.getParameter("fname");
+        String lname = request.getParameter("lname");
+        String address = request.getParameter("address");
+        String dob = request.getParameter("dob");
+        int phone = Integer.parseInt(request.getParameter("phone"));
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        Employee emp = new Employee(empId, fname, lname, address, dob, phone, username, password);
+        EmployeeService.updateEmployee(emp);
+        response.sendRedirect("employeeList.jsp");
+
+
+    }
+
 
 }

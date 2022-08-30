@@ -19,36 +19,36 @@ import com.lms.service.PaymentServiceImpl;
 
 @WebServlet("/ViewPaymentByOrderServlet")
 public class ViewPaymentByOrderServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    
+    private static final long serialVersionUID = 1L;
+
+
     public ViewPaymentByOrderServlet() {
         super();
-        
-    }
-    
-    
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-		
-	}
 
-	
+    }
+
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
+
+    }
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	response.setContentType("text/html");
-		
-    	String orderid = request.getParameter("orderId");
-    	
-		IPaymentService iPaymentService = new PaymentServiceImpl();
-		
-		Payment payment = iPaymentService.selectPaymentOrder(orderid);
-		
-		request.setAttribute("payment", payment);
-		
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/viewPayment.jsp");
-		requestDispatcher.forward(request, response);
-		
-		
-	}
+        response.setContentType("text/html");
+
+        String orderid = request.getParameter("orderId");
+
+        IPaymentService iPaymentService = new PaymentServiceImpl();
+
+        Payment payment = iPaymentService.selectPaymentOrder(orderid);
+
+        request.setAttribute("payment", payment);
+
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/viewPayment.jsp");
+        requestDispatcher.forward(request, response);
+
+
+    }
 
 }

@@ -15,22 +15,22 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ListPaymentServlet")
 public class ListPaymentServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	public ListPaymentServlet() {
-		
-	}
-	
+    private static final long serialVersionUID = 1L;
+
+    public ListPaymentServlet() {
+
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
+        doPost(request, response);
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	response.setContentType("text/html");
-    	
-    	RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/paymentList.jsp");
-    	
-    	dispatcher.forward(request, response);
-    	
-	}
+        response.setContentType("text/html");
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/paymentList.jsp");
+
+        dispatcher.forward(request, response);
+
+    }
 }

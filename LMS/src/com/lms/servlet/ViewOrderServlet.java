@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ViewOrderServlet")
 public class ViewOrderServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/orderlist.jsp");
-		rd.forward(request, response);
-	}
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/orderlist.jsp");
+        rd.forward(request, response);
+    }
 
 }

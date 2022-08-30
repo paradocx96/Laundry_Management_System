@@ -19,34 +19,34 @@ import com.lms.service.PaymentServiceImpl;
 
 @WebServlet("/EditPaymentServlet")
 public class EditPaymentServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
- 
-	
+    private static final long serialVersionUID = 1L;
+
+
     public EditPaymentServlet() {
         super();
-        
+
     }
-    
-    
+
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
-	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		
-		int payid = Integer.parseInt(request.getParameter("paymentID"));
-		
-		IPaymentService iPaymentService = new PaymentServiceImpl();
-		
-		Payment payment = iPaymentService.selectPaymentByID(payid);	
-		
-		request.setAttribute("payment", payment);
-		
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/editPaymentAdmin.jsp");
-		requestDispatcher.forward(request, response);
-		
-	}	
+        doPost(request, response);
+    }
+
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
+
+        int payid = Integer.parseInt(request.getParameter("paymentID"));
+
+        IPaymentService iPaymentService = new PaymentServiceImpl();
+
+        Payment payment = iPaymentService.selectPaymentByID(payid);
+
+        request.setAttribute("payment", payment);
+
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/editPaymentAdmin.jsp");
+        requestDispatcher.forward(request, response);
+
+    }
 
 }

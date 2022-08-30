@@ -5,97 +5,95 @@ package com.lms.model;
  */
 
 public class Payment {
-	
-	//Declare variables	
-	private int paymentID;
-	private String orderID;
-	private String paymentDate;
-	private String paymentType;
-	private String description;
-	private double payAmount;
-	
 
-	//Implement constructors
-	public Payment(int paymentID, String orderID, String paymentDate, String paymentType, String description, double payAmount) {
-		super();
-		this.paymentID = paymentID;
-		this.orderID = orderID;
-		this.paymentDate = paymentDate;
-		this.paymentType = paymentType;
-		this.description = description;
-		this.payAmount = payAmount;
-	}
-	
-	public Payment(int paymentID) {
-		super();
-		this.paymentID = paymentID;
-	}
-	
-	public Payment(String orderID, double payAmount) {
-		super();
-		this.orderID = orderID;
-		this.payAmount = payAmount;
-	}	
+    //Declare variables
+    private int paymentID;
+    private String orderID;
+    private String paymentDate;
+    private String paymentType;
+    private String description;
+    private double payAmount;
 
-	public Payment(String orderID, String paymentType, String description, double payAmount) {
-		super();
-		this.orderID = orderID;
-		this.paymentType = paymentType;
-		this.description = description;
-		this.payAmount = payAmount;
-	}
+    //Implement constructors
+    public Payment(int paymentID, String orderID, String paymentDate, String paymentType, String description, double payAmount) {
+        super();
+        this.paymentID = paymentID;
+        this.orderID = orderID;
+        this.paymentDate = paymentDate;
+        this.paymentType = paymentType;
+        this.description = description;
+        this.payAmount = payAmount;
+    }
 
-	public Payment() {	
-	}
-	
-	
-	//Implement getters and setters
-	public int getPaymentID() {
-		return paymentID;
-	}
+    public Payment(int paymentID) {
+        super();
+        this.paymentID = paymentID;
+    }
 
-	public void setPaymentID(int paymentID) {
-		this.paymentID = paymentID;
-	}
+    public Payment(String orderID, double payAmount) {
+        super();
+        this.orderID = orderID;
+        this.payAmount = payAmount;
+    }
 
-	public String getOrderID() {
-		return orderID;
-	}
+    public Payment(String orderID, String paymentType, String description, double payAmount) {
+        super();
+        this.orderID = orderID;
+        this.paymentType = paymentType;
+        this.description = description;
+        this.payAmount = payAmount;
+    }
 
-	public void setOrderID(String orderID) {
-		this.orderID = orderID;
-	}
+    public Payment() {
+    }
 
-	public String getPaymentDate() {
-		return paymentDate;
-	}
+    //Implement getters and setters
+    public int getPaymentID() {
+        return paymentID;
+    }
 
-	public void setPaymentDate(String paymentDate) {
-		this.paymentDate = paymentDate;
-	}
+    public void setPaymentID(int paymentID) {
+        this.paymentID = paymentID;
+    }
 
-	public String getPaymentType() {
-		return paymentType;
-	}
+    public String getOrderID() {
+        return orderID;
+    }
 
-	public void setPaymentType(String paymentType) {
-		this.paymentType = paymentType;
-	}
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public String getPaymentDate() {
+        return paymentDate;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setPaymentDate(String paymentDate) {
+        this.paymentDate = paymentDate;
+    }
 
-	public double getPayAmount() {
-		return payAmount;
-	}
+    public String getPaymentType() {
+        return paymentType;
+    }
 
-	public void setPayAmount(double payAmount) {
-		this.payAmount = payAmount;
-	}	
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getPayAmount() {
+        return payAmount;
+    }
+
+    public void setPayAmount(double payAmount) {
+        this.payAmount = payAmount;
+    }
 
 }
